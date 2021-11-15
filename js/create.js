@@ -85,3 +85,29 @@ function newEquipment(){
     }
     console.log(localStorage);
 }
+
+function newSale(){
+    let customernumber = document.getElementById("number").value;
+    let employeename = document.getElementById("name").value;
+    //From here data will be stored into a database
+
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        // Store data
+        let id = 0;
+        if (localStorage.length == 0){
+            localStorage.setItem('sales', JSON.stringify({
+                Customer: customernumber,
+                Name: employeename
+            }));
+        } else {
+            localStorage.setItem('sales' + localStorage.length, JSON.stringify({
+                Customer: customernumber,
+                Name: employeename
+            }));
+        }
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    console.log(localStorage);
+}

@@ -40,7 +40,7 @@ console.log(mountains);
 
 
 
-var mytable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" + "<th>" + "Brand" + "</th" + "<th>" + "Equipment Type" + "</th>" + "<th>" + "Manufacturer" + "</th>" + "<th>" + "S/N" + "</th>" + "<th>" + "M/N" + "</th>" + "<th>" + "Description" + "</th>"  + "</tr>" + "</thead" + "<tbody>"
+var mytable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" + "<th>" + "Brand" + "</th>" + "<th>" + "Equipment Type" + "</th>" + "<th>" + "Manufacturer" + "</th>" + "<th>" + "S/N" + "</th>" + "<th>" + "M/N" + "</th>" + "<th>" + "Description" + "</th>"  + "</tr>" + "</thead>" + "<tbody>"
 
 for (var key in mountains){
     //console.log(key);
