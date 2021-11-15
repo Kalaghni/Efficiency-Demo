@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
+        <title>New Sale - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
 		
@@ -59,7 +59,6 @@
                                 <div class="sb-nav-link-icon"></div>
                                 Review Sales
                             </a>
-                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -96,39 +95,19 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-					<form action="Customer-Table.html" method="post">
+					<form action="Sale-Table.html" method="post">
 						<div class="marg">
-							<label for="firstname">First Name:</label>
-							  <input id="firstname" name="firstname" type="text" placeholder="John" title="First Name of the New Customer you want to add" required>
-		
-							<label for="middlename">Middle Name:</label>
-							  <input id="middlename" name="middlename" type="text" placeholder="M" title="Middle Name of the New Customer you want to add">
-		
-							<label for="lastname">Last Name:</label>
-							  <input id="lastname" name="lastname" type="text" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
-		
-							<label for="phone">Phone Number:</label>
-                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-							
-							<label for="streetnumber">Street Number:</label>
-							  <input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" placeholder="1234" title="The Street Number the Customer has there things delievered too"required>
-		
-							<label for="streetname">Street Name:</label>
-							<input id="streetname" name="streetname" type="text" placeholder="Cedar Wood Drive" title="The Street the Customer has there things delievered too" required>
-		
-							<label for="city">City:</label>
-							  <input id="city" name="city" type="text" placeholder="Austin" title="The City the Customer Lives in"required>
-		
-							<label for="state">State:</label>
-							  <input id="state" name="state" type="text" placeholder="Texas" title="The City the Customer Lives in"required>
-		
-							<label for="zip">Zip Code:</label>
-							  <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" placeholder="73301" title="The Postal code of the Customer Following the Stadard American Zip Code eg: 12345-6789"required>
-						</div>
-						<div class="marg">
-                            
-							<input type="submit" onclick="newClient()" value="Add Client">
-						</div>	
+                            <label for="name">Customer Phone:</label>
+                              <input id="name" name="name" type="text"placeholder="(123) 456-7890 " title="Phone number of customer" required>
+        
+                            <label for="brand">Employee Name:</label>
+                              <input id="brand" name="brand" type="text" placeholder="John Doe" title="Name of employee" required>
+        
+                            <!--Add multiple items-->
+                        </div>
+                        <div class="marg">
+                            <input type="submit" onclick="newEquipment()" value="Add Equipment">
+                        </div>		
 					</form>
 				</main>
                 <footer class="py-4 bg-light mt-auto">
@@ -145,7 +124,7 @@
                 </footer>
             </div>
         </div>
-        <script src="js/create.js"></script>
+        <script src="js/create.js"> </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
