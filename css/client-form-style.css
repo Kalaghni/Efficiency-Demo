@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
 
-
-
 label {
 	display: block;
 	margin-bottom: 5px;
 	margin-top: 15px;
 }
-
 
 input[type="text"], input[type="email"], input[type="tel"] {
 	height: 30px;
@@ -16,10 +13,8 @@ input[type="text"], input[type="email"], input[type="tel"] {
 
 input[type="number"], input[type="date"] {
 	height: 30px;
-	
 	width: 30%;
 }
-
 
 input[type="submit"] {
 	display: inline-block;
@@ -49,15 +44,14 @@ input[type="submit"]:hover {
 /* Media Queries */
 @media screen and (max-width: 1024px) {
 	
-input[type="text"], input[type="email"], input[type="tel"] {
-	height: 30px;
-	width: 50%;
-}
+	input[type="text"], input[type="email"], input[type="tel"] {
+		height: 30px;
+		width: 50%;
+	}
 
-input[type="number"], input[type="date"] {
-	height: 30px;
-	
-	width: 50%;
-}
+	input[type="number"], input[type="date"] {
+		height: 30px;
+		width: 50%;
+	}
 
 }
