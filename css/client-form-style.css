@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+
+
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	margin-top: 15px;
+}
+
+
+input[type="text"], input[type="email"], input[type="tel"] {
+	height: 30px;
+	width: 30%;
+}
+
+input[type="number"], input[type="date"] {
+	height: 30px;
+	
+	width: 30%;
+}
+
+
+input[type="submit"] {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 30px;
+	border-radius: 10px;
+
+	background: #24252A;
+	border: solid #24252A;
+	color: #edf0f1;
+
+	font-size: 20px;
+
+	cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	background-color: #48D1CC;
+	border: solid #48D1CC;
+}
+
+/* Classes */
+.marg {
+	margin-left: 25px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+	
+input[type="text"], input[type="email"], input[type="tel"] {
+	height: 30px;
+	width: 50%;
+}
+
+input[type="number"], input[type="date"] {
+	height: 30px;
+	
+	width: 50%;
+}
+
+}
