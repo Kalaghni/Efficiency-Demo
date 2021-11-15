@@ -24,3 +24,5 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+//TO-DO: Calculate price of sale total
