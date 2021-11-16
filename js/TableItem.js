@@ -7,7 +7,9 @@
         new simpleDatatables.DataTable(datatablesSimples)
     }
 */
-function allStorage() { //Get data from local storage
+
+//Get data from local storage
+function allStorage() { 
 
     var values = [],
         keys = Object.keys(localStorage),
@@ -22,25 +24,18 @@ function allStorage() { //Get data from local storage
     return values;
 }
 
-let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
+//Convert local storage to objects
+let mountains = allStorage().map(JSON.parse);
 console.log(mountains);
 
-
-
-
-//for (let element of data) {
-    //for (key in element) {
-        
-        /*for (const string of stringArray){
-            console.log(string)
-        }*/
-        //let text = document.createTextNode(element[key]);
-
-    //}
-
-
-
-var mytable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" + "<th>" + "Brand" + "</th>" + "<th>" + "Equipment Type" + "</th>" + "<th>" + "Manufacturer" + "</th>" + "<th>" + "S/N" + "</th>" + "<th>" + "M/N" + "</th>" + "<th>" + "Description" + "</th>"  + "</tr>" + "</thead>" + "<tbody>"
+var mytable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
+            + "<th>" + "Brand" + "</th>" 
+            + "<th>" + "Equipment Type" + "</th>" 
+            + "<th>" + "Manufacturer" + "</th>" 
+            + "<th>" + "S/N" + "</th>" 
+            + "<th>" + "M/N" + "</th>" 
+            + "<th>" + "Description" + "</th>"  
+            + "</tr>" + "</thead>" + "<tbody>"
 
 for (var key in mountains){
     //console.log(key);

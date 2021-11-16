@@ -9,8 +9,7 @@
         <title>New Sale - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-		
-    <link rel="stylesheet" href="css/client-form-style.css">
+        <link rel="stylesheet" href="css/create-new-form.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -47,18 +46,19 @@
                                 <div class="sb-nav-link-icon"></div>
                                 Home
                             </a>
-                            <a class="nav-link" href="Customer-Table.html">
+                            <a class="nav-link" href="Table-Customer.html">
                                 <div class="sb-nav-link-icon"></div>
                                 Review Customers
                             </a>
-                            <a class="nav-link" href="Item-Table.html">
+                            <a class="nav-link" href="Table-Item.html">
                                 <div class="sb-nav-link-icon"></div>
                                 Review Equipments
                             </a>
-                            <a class="nav-link" href="Sale-Table.html">
+                            <a class="nav-link" href="Table-Sale.html">
                                 <div class="sb-nav-link-icon"></div>
                                 Review Sales
                             </a>
+
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -95,7 +95,7 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-					<form action="Sale-Table.html" method="post">
+					<form action="Table-Sale.html" method="post">
 						<div class="marg">
                             <label for="number">Customer Phone:</label>
                               <input id="number" name="number" type="tel" placeholder="(123) 456-7890 " title="Phone number of customer" required>
@@ -131,6 +131,5 @@
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/SaleTable.js"></script>
     </body>
 </html>

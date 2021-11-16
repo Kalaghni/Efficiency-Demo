@@ -1,6 +1,6 @@
-/*
-TO-DO: Fix table bootstrap
-window.addEventListener('DOMContentLoaded', event => {
+//TO-DO: Fix table bootstrap
+
+/*window.addEventListener('DOMContentLoaded', event => {
     // Simple-DataTables
     // https://github.com/fiduswriter/Simple-DataTables/wiki
 
@@ -9,7 +9,8 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesSimple);
     }*/
 
-function allStorage() { //Get data from local storage
+//Get data from local storage
+function allStorage() { 
 
     var values = [],
         keys = Object.keys(localStorage),
@@ -25,26 +26,34 @@ function allStorage() { //Get data from local storage
 }
 
 let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
-const data = ["FirstName", "MiddleName", "LastName","Mobile","Street","StreetName","CityLocation","StateLocation","ZipCode"];
+//const data = ["FirstName", "MiddleName", "LastName", "Mobile", "Street", "StreetName", "CityLocation", "StateLocation", "ZipCode"];
 console.log(mountains);
 
-
-
-
-//for (let element of data) {
-    //for (key in element) {
+/*for (let element of data) {
+    for (key in element) {
     	
-    	/*for (const string of stringArray){
+    	for (const string of stringArray){
     		console.log(string)
-    	}*/
-        //let text = document.createTextNode(element[key]);
+    	}
+        let text = document.createTextNode(element[key]);
 
-    //}
+    }
+}*/
 
+//spawn table
+var mytable = "<thead>" + "<tr>" 
+    + "<th>" + "FirstName" + "</th>"
+    + "<th>" + "Middle Name" + "</th>" 
+    + "<th>" + "Last Name" + "</th>" 
+    + "<th>" + "Phone Number" + "</th>" 
+    + "<th>" + "Street Number" + "</th>" 
+    + "<th>" + "Street Name" + "</th>" 
+    + "<th>" + "City" + "</th>" 
+    + "<th>" + "State" + "</th>" 
+    + "<th>" + "Zip Code" + "</th>" 
+    + "</tr>" + "</thead>" + "<tbody>"
 
-
-var mytable = "<thead>" + "<tr>" + "<th>" + "FirstName" + "</th>" + "<th>" + "Middle Name" + "</th>" + "<th>" + "Last Name" + "</th>" + "<th>" + "Phone Number" + "</th>" + "<th>" + "Street Number" + "</th>" + "<th>" + "Street Name" + "</th>" + "<th>" + "City" + "</th>" + "<th>" + "State" + "</th>" + "<th>" + "Zip Code" + "</th>" + "</tr>" + "</thead>" + "<tbody>"
-
+//Fill data into the table
 for (var key in mountains){
 	//console.log(key);
 	mytable += "<tr>"
@@ -54,9 +63,10 @@ for (var key in mountains){
 		mytable += "<td>" + mountains[key].MiddleName + "</td>";
 		mytable += "<td>" + mountains[key].LastName + "</td>";
 		mytable += "<td>" + mountains[key].Mobile + "</td>";
-		mytable += "<td>" + mountains[key].StateLocation + "</td>";
 		mytable += "<td>" + mountains[key].Street + "</td>";
 		mytable += "<td>" + mountains[key].StreetName + "</td>";
+        mytable += "<td>" + mountains[key].CityLocation + "</td>";
+		mytable += "<td>" + mountains[key].StateLocation + "</td>";
 		mytable += "<td>" + mountains[key].ZipCode + "</td>";
 	}
 	mytable += "</tr>"

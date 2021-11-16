@@ -20,3 +20,5 @@ function updateClient(){
     let zipCode = document.getElementById("zip").value;
     //from here presumably data will be stored into a database
 }
+
+//TO-DO
