@@ -83,19 +83,19 @@ function newEquipment(){
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
-    console.log(localStorage);
 }
 
 function newSaleCust(){
     let phone = document.getElementById("phone").value;
-    let customername = document.getElementById("custName").value;
-    let date = document.getElementById("date").value;
+    let customername = document.getElementById("customername").value;
+    letDdate = document.getElementById("date").value;
     let type = document.getElementById("type").value;
     let empName = document.getElementById("empName").value;
     let subTotal = document.getElementById("subTotal").value;
     let tax = document.getElementById("tax").value;
     let total = document.getElementById("total").value;
     //From here data will be stored into a database
+    newSaleEquip()
 
     // Check browser support
     if (typeof(Storage) !== "undefined") {
@@ -127,14 +127,13 @@ function newSaleCust(){
             }));
         }
     } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
-    console.log(localStorage);
 }
 
 function newSaleEquip(){
     let name = document.getElementById("name").value;
-    let quantity = document.getElementById("custName").value;
+    let quantity = document.getElementById("quantity").value;
     let price = document.getElementById("price").value;
     //From here data will be stored into a database
 
@@ -143,13 +142,13 @@ function newSaleEquip(){
         // Store data
         let id = 0;
         if (localStorage.length == 0){
-            localStorage.setItem('sales', JSON.stringify({
+            localStorage.setItem('salesEquip', JSON.stringify({
                 Name: name,
                 Quantity: quantity,
                 Price : price
             }));
         } else {
-            localStorage.setItem('sales' + localStorage.length, JSON.stringify({
+            localStorage.setItem('salesEquip' + localStorage.length, JSON.stringify({
                 Name: name,
                 Quantity: quantity,
                 Price : price
@@ -158,5 +157,34 @@ function newSaleEquip(){
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
-    console.log(localStorage);
+}
+
+function findInvoice(){
+    phone = document.getElementById("phone").value;
+
+    if (typeof(Storage) !== "undefined") {
+
+        orders = localStorage.getItem('salesCust', Phone)
+        
+        foreach(o in orders)
+        {
+            if(phone == o.Phone){
+                getElementById("phone").value = o.Phone;
+                getElementById("customername").value = o.customername;
+                getElementById("date").value = o.Date;
+                getElementById("type").value = o.Type;
+                getElementById("empName").value = o.EmpName;
+                getElementById("name").value = o.Name;
+                getElementById("quantity").value = o.Quantity;
+                getElementById("price").value = o.Price;
+                getElementById("subTotal").value = o.SubTotal;
+                getElementById("tax").value = o.Tax;
+                getElementById("total").value = o.Total;
+            }
+        }
+    
+        
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
 }

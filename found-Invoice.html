@@ -99,50 +99,51 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Efficiency System</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Efficiency System</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Create Customer</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <div class="small text-white stretched-link" href="#">Add a new Customer to the database!</div>
-                                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
-                                    </div>
-                                        <a class="large text-white stretched-link" href="new-Customer.html"></a>
-                                        <div class="large text-white"></div>
-                                    
+                        <h1 class="mt-4">Invoice</h1>
+                        <form action="Invoice.html" method="post">
+                            <div class="card mb-2">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                     Customer Invoice
+                                </div> 
+                               <div class="marg">
+                                <label for="number">Customer Phone:</label>
+                                <input id="phone" name="phone" type="tel" title="Phone number of customer" disabled="disabled">
+          
+                              <label for="customername">Customer Name:</label>
+                                <input id="customername" name="customername" type="text" title="Name of customer" disabled="disabled" >
+  
+                              <label for="date">Date:</label>
+                                <input id="date" name="date" type="text" title="The date of the purchase" disabled="disabled">
+  
+                              <label for="type">Order Type:</label>
+                                <input id="type" name="type" type="text" title="Type of order" disabled="disabled">
+  
+                              <label for="empName">Employee Name:</label>
+                                <input id="empName" name="empName" type="text" title="Name of employee" disabled="disabled">
+  
+                              <label for="name">Product Name:</label>
+                                <input id="name" name="name" type="text" title="Name of the product" disabled="disabled">
+  
+                              <label for="quantity">Quantity:</label>
+                                <input id="quantity" name="quantity" type="text" title="Quantity of products in the order" disabled="disabled">
+  
+                              <label for="price">Price:</label>
+                                <input id="price" name="price" type="text" title="The cost of the product" disabled="disabled">
+  
+                              <label for="subTotal">Sub Toal:</label>
+                                <input id="subTotal" name="subTotal" type="text" title="Order's total before tax" disabled="disabled">
+  
+                              <label for="tax">Tax:</label>
+                                <input id="tax" name="tax" type="text" title="The tax being added to the order" disabled="disabled">
+  
+                              <label for="total">Total:</label>
+                                <input id="total" name="total" type="text" title="Total price of all items in the order" disabled="disabled">
+                                    <input type="submit" value="Find New Invoice">
                                 </div>
-
                             </div>
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Create Item</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <div class="small text-white stretched-link" href="#">Add a new Item to the database!</div>
-                                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
-                                    </div>
-                                        <a class="large text-white stretched-link" href="new-Item.html"></a>
-                                        <div class="large text-white"></div>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Make Sale</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <div class="small text-white stretched-link" href="#">Enter new transaction to the database!</div>
-                                        <div class="small text-white"><svg class="svg-inline--fa fa-angle-right fa-w-8" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
-                                    </div>
-                                        <a class="large text-white stretched-link" href="new-Sale.html"></a>
-                                        <div class="large text-white"></div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        </form>
+                        
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -159,7 +160,7 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/TableSale.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>

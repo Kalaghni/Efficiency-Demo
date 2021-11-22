@@ -57,6 +57,10 @@
                                 <div class="sb-nav-link-icon"></div>
                                 Review Sales
                             </a>
+                            <a class="nav-link" href="Invoice.html">
+                                <div class="sb-nav-link-icon"></div>
+                                Invoice Lookup
+                            </a>
                             
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -99,18 +103,14 @@
                         <div class="card mb-2">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Customer Invoice
-                            </div>
-                            
-                            
-                            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-                            
-                            
+                                Invoice Search
+                            </div>                            
+                            <label for="name">Phone Number:</label>
+                              <input id="name" name="name" type="text"placeholder="(905)-123-4567" title="Customers phone number that is tied to order" required>
 
-                            <div class="card-body">
-                                <!--Table start maybe you could find a way to make this style work with our table but that would probly screw up the javascrip-->
-                                <table id="datatablesSimple">
-                                </table>
+                            </div>
+                            <div class="marg">
+                                <input type="submit" onclick="findInvoice()" value="Find Invoice(s)">
                             </div>
                         </div>
                         
@@ -130,7 +130,7 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/TableSale.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>

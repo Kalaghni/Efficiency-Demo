@@ -27,18 +27,13 @@ var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th
                                 + "<th>" + "Total" + "</th>"
                                 + "</tr>" + "</thead>" + "<tbody>";
 
-var saleEquipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
-                                + "<th>" + "Quantity" + "</th>" 
-                                + "<th>" + "Price" + "</th>" 
-                                + "</tr>" + "</thead>" + "<tbody>";
-
 for (var key in mountains){
-    //console.log(key);
+//console.log(key);
     saleCustTable += "<tr>"
-    if (mountains[key].hasOwnProperty('Date')){
+    if (mountains[key].hasOwnProperty("Date")){
         console.log(mountains[key].FirstName);
-        saleCustTable += "<td>" + mountains[key].Phone + "</td>";
-        saleCustTable += "<td>" + mountains[key].CustName + "</td>";
+        saleCustTable += "<td>" + mountains[key].Phone +  "</td>";
+        saleCustTable += "<td>" + mountains[key].customername + "</td>";
         saleCustTable += "<td>" + mountains[key].Date + "</td>";
         saleCustTable += "<td>" + mountains[key].Type + "</td>";
         saleCustTable += "<td>" + mountains[key].EmpName + "</td>";
@@ -48,10 +43,16 @@ for (var key in mountains){
     }
     saleCustTable += "</tr>"
 }
-
+                                
 saleCustTable += "</tbody>"
-
 document.getElementById("SaleCustTable").innerHTML = saleCustTable;
+                                
+var saleEquipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
+                                + "<th>" + "Quantity" + "</th>" 
+                                + "<th>" + "Price" + "</th>" 
+                                + "</tr>" + "</thead>" + "<tbody>";
+
+
 
 for (var key in mountains){
     //console.log(key);
