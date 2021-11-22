@@ -222,6 +222,7 @@ function getSetText(getSet)
         document.getElementById("list").value == list;
     }
     else{
+        
         phone = getSet.Phone;
         customername = getSet.customername;
         date = getSet.Date;
