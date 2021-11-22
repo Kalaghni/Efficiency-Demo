@@ -17,22 +17,33 @@ let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
 console.log(mountains);
 
 
-var mytable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>" 
-                                + "<th>" + "Employee Name" + "</th>" 
-                                + "</tr>" + "</thead>" + "<tbody>"
+var saleTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
+                                + "<th>" + "Customer Name" + "</th>"
+                                + "<th>" + "Date" + "</th>"
+                                + "<th>" + "Type" + "</th>"
+                                + "<th>" + "Employee Name" + "</th>"
+                                + "<th>" + "Sub-Total" + "</th>"
+                                + "<th>" + "Tax" + "</th>"
+                                + "<th>" + "Total" + "</th>"
+                                + "</tr>" + "</thead>" + "<tbody>";
+
+var equipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
+                                + "<th>" + "Quantity" + "</th>" 
+                                + "<th>" + "Price" + "</th>" 
+                                + "</tr>" + "</thead>" + "<tbody>";
 
 for (var key in mountains){
     //console.log(key);
     mytable += "<tr>"
     if (mountains[key].hasOwnProperty('Customer')){
         console.log(mountains[key].FirstName);
-        mytable += "<td>" + mountains[key].Customer + "</td>";
-        mytable += "<td>" + mountains[key].Name + "</td>";
+        saletable += "<td>" + mountains[key].Customer + "</td>";
+        saletable += "<td>" + mountains[key].Name + "</td>";
     }
-    mytable += "</tr>"
+    saletable += "</tr>"
 }
 
-mytable += "</tbody>"
+saletable += "</tbody>"
 
-document.getElementById("SaleTable").innerHTML = mytable;
+document.getElementById("SaleTable").innerHTML = saletable;
 
