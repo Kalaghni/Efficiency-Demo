@@ -159,32 +159,80 @@ function newSaleEquip(){
     }
 }
 
+function allStorage() { 
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    console.log(localStorage);
+
+    while (i--) {
+        values.push(localStorage.getItem(keys[i]));
+    }
+
+    return values;
+}
+
+let orders = allStorage().map(JSON.parse)
+
 function findInvoice(){
     phone = document.getElementById("phone").value;
-
+    let list = document.getElementById("list");
+    list = "";
+    
     if (typeof(Storage) !== "undefined") {
 
-        orders = localStorage.getItem('salesCust', Phone)
         
-        foreach(o in orders)
-        {
+        
+        orders.forEach(o => {
             if(phone == o.Phone){
-                getElementById("phone").value = o.Phone;
-                getElementById("customername").value = o.customername;
-                getElementById("date").value = o.Date;
-                getElementById("type").value = o.Type;
-                getElementById("empName").value = o.EmpName;
-                getElementById("name").value = o.Name;
-                getElementById("quantity").value = o.Quantity;
-                getElementById("price").value = o.Price;
-                getElementById("subTotal").value = o.SubTotal;
-                getElementById("tax").value = o.Tax;
-                getElementById("total").value = o.Total;
+                getSetText(o)
             }
-        }
+            else{
+                //list.innerHTML += `<li> No invoices found </li>`;
+                //getElementById("phone").value = "No Invoices found under that Number!";
+            }
+        });
+    
     
         
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+}
+
+function getSetText(getSet)
+{
+    
+    let list = "";
+
+    if(getSet == "get"){
+       list += list.innerHTML += `<li>${phone} </li>`
+       list += list.innerHTML += `<li>${customername} </li>`
+       list += list.innerHTML += `<li>${date} </li>`
+       list += list.innerHTML += `<li>${type} </li>`
+       list += list.innerHTML += `<li>${empName} </li>`
+       list += list.innerHTML += `<li>${name} </li>`
+       list += list.innerHTML += `<li>${quantity} </li>`
+       list += list.innerHTML += `<li>${price} </li>`
+       list += list.innerHTML += `<li>${subTotal} </li>`
+       list += list.innerHTML += `<li>${tax} </li>`
+       list += list.innerHTML += `<li>${total} </li>`
+        document.getElementById("list").value == list;
+    }
+    else{
+        phone = getSet.Phone;
+        customername = getSet.customername;
+        date = getSet.Date;
+        type = getSet.Type;
+        empName = getSet.EmpName;
+        name = getSet.Name;
+        quantity = getSet.Quantity;
+        price = getSet.Price;
+        subTotal = getSet.SubTotal;
+        tax = getSet.Tax;
+        total = getSet.Total;
+
     }
 }
