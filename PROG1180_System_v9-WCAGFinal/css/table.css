@@ -1,0 +1,36 @@
+/***************
+Configure Tables
+***************/
+table {
+
+    border: none;
+    border-collapse: collapse;
+    
+    white-space: nowrap;
+
+    background-color: #edf0f1;
+}
+
+table td, table th {
+    text-align: center;
+    padding: 8px;
+}
+
+table td {
+    border-right: 1px solid #f8f8f8;
+}
+
+table thead th {
+    color: #ffffff;
+    background: #006d4c;
+}
+
+
+table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #24252A;
+}
+
+table tr:nth-child(even) {
+    background: #F8F8F8;
+}
