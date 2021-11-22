@@ -17,7 +17,7 @@ let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
 console.log(mountains);
 
 
-var saleTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
+var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
                                 + "<th>" + "Customer Name" + "</th>"
                                 + "<th>" + "Date" + "</th>"
                                 + "<th>" + "Type" + "</th>"
@@ -27,23 +27,44 @@ var saleTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
                                 + "<th>" + "Total" + "</th>"
                                 + "</tr>" + "</thead>" + "<tbody>";
 
-var equipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
+var saleEquipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
                                 + "<th>" + "Quantity" + "</th>" 
                                 + "<th>" + "Price" + "</th>" 
                                 + "</tr>" + "</thead>" + "<tbody>";
 
 for (var key in mountains){
     //console.log(key);
-    mytable += "<tr>"
-    if (mountains[key].hasOwnProperty('Customer')){
+    saleCustTable += "<tr>"
+    if (mountains[key].hasOwnProperty('Date')){
         console.log(mountains[key].FirstName);
-        saletable += "<td>" + mountains[key].Customer + "</td>";
-        saletable += "<td>" + mountains[key].Name + "</td>";
+        saleCustTable += "<td>" + mountains[key].Phone + "</td>";
+        saleCustTable += "<td>" + mountains[key].CustName + "</td>";
+        saleCustTable += "<td>" + mountains[key].Date + "</td>";
+        saleCustTable += "<td>" + mountains[key].Type + "</td>";
+        saleCustTable += "<td>" + mountains[key].EmpName + "</td>";
+        saleCustTable += "<td>" + mountains[key].SubTotal + "</td>";
+        saleCustTable += "<td>" + mountains[key].Tax + "</td>";
+        saleCustTable += "<td>" + mountains[key].Total + "</td>";
     }
-    saletable += "</tr>"
+    saleCustTable += "</tr>"
 }
 
-saletable += "</tbody>"
+saleCustTable += "</tbody>"
 
-document.getElementById("SaleTable").innerHTML = saletable;
+document.getElementById("SaleCustTable").innerHTML = saleCustTable;
 
+for (var key in mountains){
+    //console.log(key);
+    saleEquipmentTable += "<tr>"
+    if (mountains[key].hasOwnProperty('Quantity')){
+        console.log(mountains[key].FirstName);
+        saleEquipmentTable += "<td>" + mountains[key].Name + "</td>";
+        saleEquipmentTable += "<td>" + mountains[key].Quantity + "</td>";
+        saleEquipmentTable += "<td>" + mountains[key].Price + "</td>";
+    }    
+    saleEquipmentTable += "</tr>"
+}
+
+saleEquipmentTable += "</tbody>"
+
+document.getElementById("SaleEquipTable").innerHTML = saleEquipmentTable;

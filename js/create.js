@@ -86,9 +86,56 @@ function newEquipment(){
     console.log(localStorage);
 }
 
-function newSale(){
-    let customernumber = document.getElementById("number").value;
-    let employeename = document.getElementById("name").value;
+function newSaleCust(){
+    let phone = document.getElementById("phone").value;
+    let customername = document.getElementById("custName").value;
+    let date = document.getElementById("date").value;
+    let type = document.getElementById("type").value;
+    let empName = document.getElementById("empName").value;
+    let subTotal = document.getElementById("subTotal").value;
+    let tax = document.getElementById("tax").value;
+    let total = document.getElementById("total").value;
+    //From here data will be stored into a database
+
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        // Store data
+        let id = 0;
+        if (localStorage.length == 0)
+        {
+            console.log("Im braindead")
+            localStorage.setItem('salesCust', JSON.stringify({
+                Phone: phone,
+                customername: customername,
+                Date: date,
+                Type: type,
+                EmpName: empName,
+                SubTotal: subTotal,
+                Tax : tax,
+                Total: total
+            }));
+        } else {
+            localStorage.setItem('salesCust' + localStorage.length, JSON.stringify({
+                Phone: phone,
+                customername: customername,
+                Date: date,
+                Type: type,
+                EmpName: empName,
+                SubTotal: subTotal,
+                Tax : tax,
+                Total: total
+            }));
+        }
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+    console.log(localStorage);
+}
+
+function newSaleEquip(){
+    let name = document.getElementById("name").value;
+    let quantity = document.getElementById("custName").value;
+    let price = document.getElementById("price").value;
     //From here data will be stored into a database
 
     // Check browser support
@@ -97,13 +144,15 @@ function newSale(){
         let id = 0;
         if (localStorage.length == 0){
             localStorage.setItem('sales', JSON.stringify({
-                Customer: customernumber,
-                Name: employeename
+                Name: name,
+                Quantity: quantity,
+                Price : price
             }));
         } else {
             localStorage.setItem('sales' + localStorage.length, JSON.stringify({
-                Customer: customernumber,
-                Name: employeename
+                Name: name,
+                Quantity: quantity,
+                Price : price
             }));
         }
     } else {
