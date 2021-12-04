@@ -1,14 +1,3 @@
-//TO-DO: Fix table bootstrap
-
-/*window.addEventListener('DOMContentLoaded', event => {
-    // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
-
-    const datatablesSimple = document.getElementById('datatablesSimples');
-    if (datatablesSimple) {
-        new simpleDatatables.DataTable(datatablesSimple);
-    }*/
-
 //Get data from local storage
 function allStorage() { 
 
@@ -26,19 +15,7 @@ function allStorage() {
 }
 
 let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
-//const data = ["FirstName", "MiddleName", "LastName", "Mobile", "Street", "StreetName", "CityLocation", "StateLocation", "ZipCode"];
 console.log(mountains);
-
-/*for (let element of data) {
-    for (key in element) {
-    	
-    	for (const string of stringArray){
-    		console.log(string)
-    	}
-        let text = document.createTextNode(element[key]);
-
-    }
-}*/
 
 //spawn table
 var mytable = "<thead>" + "<tr>" 
@@ -73,5 +50,4 @@ for (var key in mountains){
 }
 
 mytable += "</tbody>"
-
 document.getElementById("datatablesSimple").innerHTML = mytable;

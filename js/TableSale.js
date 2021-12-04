@@ -17,7 +17,7 @@ let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
 console.log(mountains);
 
 
-var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
+var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone" + "</th>"
                                 + "<th>" + "Customer Name" + "</th>"
                                 + "<th>" + "Date" + "</th>"
                                 + "<th>" + "Type" + "</th>"
@@ -45,14 +45,14 @@ for (var key in mountains){
 }
                                 
 saleCustTable += "</tbody>"
-document.getElementById("SaleCustTable").innerHTML = saleCustTable;
-                                
-var saleEquipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
-                                + "<th>" + "Quantity" + "</th>" 
-                                + "<th>" + "Price" + "</th>" 
-                                + "</tr>" + "</thead>" + "<tbody>";
+document.getElementById("datatablesSimple").innerHTML = saleCustTable;
 
-
+//sale equipment
+var saleEquipmentTable = "<thead>" + "<tr>" 
+                       + "<th>" + "Name" + "</th>" 
+                       + "<th>" + "Quantity" + "</th>" 
+                       + "<th>" + "Price" + "</th>" 
+                       + "</tr>" + "</thead>" + "<tbody>";
 
 for (var key in mountains){
     //console.log(key);
@@ -67,5 +67,4 @@ for (var key in mountains){
 }
 
 saleEquipmentTable += "</tbody>"
-
 document.getElementById("SaleEquipTable").innerHTML = saleEquipmentTable;

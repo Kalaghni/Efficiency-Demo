@@ -1,13 +1,3 @@
-//window.addEventListener('DOMContentLoaded', event => {
-    // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
-
-    /*const datatablesSimple = document.getElementById('datatablesSimpless');
-    if (datatablesSimple) {
-        new simpleDatatables.DataTable(datatablesSimples)
-    }
-*/
-
 //Get data from local storage
 function allStorage() { 
 
@@ -54,7 +44,4 @@ for (var key in mountains){
 }
 
 mytable += "</tbody>"
-
 document.getElementById("datatablesSimple").innerHTML = mytable;
-
-
