@@ -8,15 +8,13 @@ function newClient(){
     let city = document.getElementById("city").value;
     let state = document.getElementById("state").value;
     let zipCode = document.getElementById("zip").value;
+
     //From here data will be stored into a database
-    console.log(firstName);
-    console.log(zipCode);
-    // Check browser support
-    if (typeof(Storage) !== "undefined") {
+    if (typeof(Storage) !== "undefined") { // Check browser support
         // Store data
-        let id = 0;
         if (localStorage.length == 0){
             localStorage.setItem('customer', JSON.stringify({
+                ID: "",
                 FirstName: firstName,
                 MiddleName: middleName,
                 LastName: lastName,
@@ -29,6 +27,7 @@ function newClient(){
             }));
         } else {
             localStorage.setItem('customer' + localStorage.length, JSON.stringify({
+                ID: "",
                 FirstName: firstName,
                 MiddleName: middleName,
                 LastName: lastName,
@@ -61,6 +60,7 @@ function newEquipment(){
         let id = 0;
         if (localStorage.length == 0){
             localStorage.setItem('equipment', JSON.stringify({
+                ID: "",
                 Name: name,
                 Brand: brand,
                 Type: type,
@@ -71,6 +71,7 @@ function newEquipment(){
             }));
         } else {
             localStorage.setItem('equipment' + localStorage.length, JSON.stringify({
+                ID: "",
                 Name: name,
                 Brand: brand,
                 Type: type,

@@ -1,64 +1,18 @@
-//Get data from local storage
-function allStorage() { 
-
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
-    while (i--) {
-        values.push(localStorage.getItem(keys[i]));
-    }
-
-    return values;
-}
-
-//Convert local storage to objects
-let mountains = allStorage().map(JSON.parse);
-
-var mytable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
-            + "<th>" + "Brand" + "</th>" 
-            + "<th>" + "Equipment Type" + "</th>" 
-            + "<th>" + "Manufacturer" + "</th>" 
-            + "<th>" + "S/N" + "</th>" 
-            + "<th>" + "M/N" + "</th>" 
-            + "<th>" + "Description" + "</th>"  
-            + "</tr>" + "</thead>" + "<tbody>"
-
-var myobj;
-var myarr = [];
-
-for (var key in mountains){
-    mytable += "<tr>"
-    if (mountains[key].hasOwnProperty('Description')){
-        mytable += "<td>" + mountains[key].Name + "</td>";
-        mytable += "<td>" + mountains[key].Brand + "</td>";
-        mytable += "<td>" + mountains[key].Type + "</td>";
-        mytable += "<td>" + mountains[key].Manufacture + "</td>";
-        mytable += "<td>" + mountains[key].SerialNumber + "</td>";
-        mytable += "<td>" + mountains[key].ProductNumber + "</td>";
-        mytable += "<td>" + mountains[key].Description + "</td>";
-    }
-    mytable += "</tr>"
-    /*var mystr = `{
-        "ID":               "${mountains[key].ID}", 
-        "Name":       "${mountains[key].Name}", 
-        "Brand":      "${mountains[key].Brand}", 
-        "Type":        "${mountains[key].Type}", 
-        "Manufacture":           "${mountains[key].Manufacture}", 
-        "Serial_Number":           "${mountains[key].SerialNumber}", 
-        "Product_Number":      "${mountains[key].ProductNumber}", 
-        "Description":   "${mountains[key].Description}"
-    }`;
-
-    myobj = JSON.parse(mystr);
-    myarr.push(myobj);*/
-}
-
-mytable += "</tbody>"
-document.getElementById("datatablesSimple").innerHTML = mytable;
-
 let crudApp = new function(){
-    this.customers = myarr;
+    this.customers = [
+        {
+            ID: '1',
+            First_Name: 'James',
+            Middle_Name: '',
+            Last_Name: 'Veitch',
+            Mobile: '123567890',
+            Street_Number: '1600',
+            Street_Name: 'Pennsylvania Avenue NW',
+            City: 'Washington',
+            State: 'District Colombia',
+            ZipCode: '20500'
+        }
+    ]
 
     this.category = [];
     this.col = [];
@@ -76,7 +30,7 @@ let crudApp = new function(){
 
         // CREATE A TABLE.
         var table = document.createElement('table');
-        table.setAttribute('id', 'datatablesSimple');     // SET TABLE ID.
+        table.setAttribute('id', 'customersTable');     // SET TABLE ID.
 
         var thead = table.createTHead();
         var tr = thead.insertRow(-1);               // CREATE A ROW (FOR HEADER).
@@ -149,7 +103,7 @@ let crudApp = new function(){
 
         // ADD A ROW AT THE END WITH BLANK TEXTBOXES(FOR NEW ENTRY).
 
-        /*tr = table.insertRow(-1);           // CREATE THE LAST ROW.
+        tr = table.insertRow(-1);           // CREATE THE LAST ROW.
 
         for (var j = 0; j < this.col.length; j++) {
             var newCell = tr.insertCell(-1);
@@ -171,7 +125,7 @@ let crudApp = new function(){
         btNew.setAttribute('id', 'New' + i);
         btNew.setAttribute('style', 'background-color:#207DD1;');
         btNew.setAttribute('onclick', 'crudApp.CreateNew(this)');       // ADD THE BUTTON's 'onclick' EVENT.
-        this.td.appendChild(btNew);*/
+        this.td.appendChild(btNew);
 
         var div = document.getElementById('container');
         div.innerHTML = '';
@@ -196,7 +150,7 @@ let crudApp = new function(){
         var btUpdate = document.getElementById('Edit' + (activeRow - 1));
         btUpdate.setAttribute('style', 'display:block; margin:0 auto; background-color:#44CCEB;');
 
-        var tab = document.getElementById('datatablesSimple').rows[activeRow];
+        var tab = document.getElementById('customersTable').rows[activeRow];
 
         for (i = 0; i < this.col.length; i++) {
             var td = tab.getElementsByTagName("td")[i];
@@ -208,7 +162,7 @@ let crudApp = new function(){
     // EDIT DATA.
     this.Update = function (oButton) {
     var activeRow = oButton.parentNode.parentNode.rowIndex;
-    var tab = document.getElementById('datatablesSimple').rows[activeRow];
+    var tab = document.getElementById('customersTable').rows[activeRow];
 
     for (i = 1; i < 10; i++) {
         var td = tab.getElementsByTagName("td")[i];
@@ -235,13 +189,12 @@ let crudApp = new function(){
         var activeRow = oButton.parentNode.parentNode.rowIndex;
         this.customers.splice((activeRow - 1), 1);    // DELETE THE ACTIVE ROW.
         this.createTable();                         // REFRESH THE TABLE.
-        table.setAttribute('id', 'datatablesSimple');
     };
 
     // SAVE DATA.
     this.Save = function (oButton) {
         var activeRow = oButton.parentNode.parentNode.rowIndex;
-        var tab = document.getElementById('datatablesSimple').rows[activeRow];
+        var tab = document.getElementById('customersTable').rows[activeRow];
 
         // UPDATE customers ARRAY WITH VALUES.
         for (i = 1; i < this.col.length; i++) {
@@ -256,7 +209,7 @@ let crudApp = new function(){
     // CREATE NEW
     this.CreateNew = function (oButton) {
         var activeRow = oButton.parentNode.parentNode.rowIndex;
-        var tab = document.getElementById('datatablesSimple').rows[activeRow];
+        var tab = document.getElementById('customersTable').rows[activeRow];
         var obj = {};
 
         // ADD NEW VALUE TO customers ARRAY.
@@ -285,4 +238,4 @@ let crudApp = new function(){
     // ****** OPERATIONS END.
 }
 
-//crudApp.createTable();
+crudApp.createTable();

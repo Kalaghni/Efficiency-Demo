@@ -4,8 +4,6 @@ function allStorage() { //Get data from local storage
         keys = Object.keys(localStorage),
         i = keys.length;
 
-    console.log(localStorage);
-
     while (i--) {
         values.push(localStorage.getItem(keys[i]));
     }
@@ -55,10 +53,8 @@ var saleEquipmentTable = "<thead>" + "<tr>"
                        + "</tr>" + "</thead>" + "<tbody>";
 
 for (var key in mountains){
-    //console.log(key);
     saleEquipmentTable += "<tr>"
     if (mountains[key].hasOwnProperty('Quantity')){
-        console.log(mountains[key].FirstName);
         saleEquipmentTable += "<td>" + mountains[key].Name + "</td>";
         saleEquipmentTable += "<td>" + mountains[key].Quantity + "</td>";
         saleEquipmentTable += "<td>" + mountains[key].Price + "</td>";
