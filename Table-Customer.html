@@ -105,91 +105,15 @@
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item active">Customers</li>
                         </ol>
+                        <div>
+                            <a href="new-Customer.html">Add Customer</a>
+                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>Customer Database
                             </div>
                             <div class="card-body">
-                                <table class="list" id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Phone</th>
-                                            <th>Street Number</th>
-                                            <th>Street Name</th>
-                                            <th>City</th>
-                                            <th>State</th>
-                                            <th>Zip Code</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>John</td>
-                                            <td>M</td>
-                                            <td>Smith</td>
-                                            <td>1234567890</td>
-                                            <td>1234</td>
-                                            <td>Cedar Wood Drive</td>
-                                            <td>Austin</td>
-                                            <td>Texas</td>
-                                            <td>73301</td>
-                                            <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-fluid px-4">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                New Customer Form
-                            </div>
-                            <div class="card-body">
-                                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-                                    <div>
-                                        <label for="firstname">First Name:</label>
-                                        <input id="firstname" name="firstname" type="text" placeholder="John" title="First Name of the New Customer you want to add" required>
-                                    </div>
-                                    <div>
-                                        <label for="middlename">Middle Name:</label>
-                                        <input id="middlename" name="middlename" type="text" placeholder="M" title="Middle Name of the New Customer you want to add">
-                                    </div>
-                                    <div>
-                                        <label for="lastname">Last Name:</label>
-                                        <input id="lastname" name="lastname" type="text" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
-                                    </div>
-                                    <div>
-                                        <label for="phone">Phone Number:</label>
-                                        <input id="phone" name="phone" type="text" placeholder="1234567890" required>
-                                    </div>
-                                    <div>
-                                        <label for="streetnumber">Street Number:</label>
-                                        <input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" placeholder="1234" title="The Street Number the Customer has there things delievered too"required>
-                                    </div>
-                                    <div>
-                                        <label for="streetname">Street Name:</label>
-                                        <input id="streetname" name="streetname" type="text" placeholder="Cedar Wood Drive" title="The Street the Customer has there things delievered too" required>
-                                    </div>
-                                    <div>
-                                        <label for="city">City:</label>
-                                        <input id="city" name="city" type="text" placeholder="Austin" title="The City the Customer Lives in"required>
-                                    </div>
-                                    <div>
-                                        <label for="state">State:</label>
-                                        <input id="state" name="state" type="text" placeholder="Texas" title="The City the Customer Lives in"required>
-                                    </div>
-                                    <div>
-                                        <label for="zip">Zip Code:</label>
-                                        <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" placeholder="73301" title="The Postal code of the Customer Following the Stadard American Zip Code eg: 12345-6789"required>
-                                    </div>
-                                    <div class="form-action-buttons">
-                                        <input type="submit" value="Submit">
-                                    </div>
-                                </form>
+                                <table class="list" id="datatablesSimple"></table>
                             </div>
                         </div>
                     </div>

@@ -37,9 +37,6 @@ else {
     location.assign("login.html")
 }
 
-
-
-
 function Logout() {
     if (localStorage['login_status'] != undefined) {
         delete localStorage['login_status'];

@@ -64,7 +64,6 @@
                             </a>
                             <div id="admin-only-users">
                             </div>
-                            
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
@@ -101,34 +100,37 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-					<form action="Table-Item.html" method="get" target="_blank">
+					<form>
 						<div class="marg">
-                            <label for="name">Name:</label>
-                              <input id="name" name="name" type="text"placeholder="M2000 Robotic Lawn Mower Blade " title="Name of the Item you are adding" required>
-        
-                            <label for="brand">Brand:</label>
-                              <input id="brand" name="brand" type="text" placeholder="Landroid" title="Brand that Owns the item" required>
-        
-                            <label for="type">Equipment Type:</label>
-                              <input id="type" name="type" type="text" placeholder="Lawn Mower" Title="Type of Equipment it is eg: Lawn Mower, " required>
-        
-                            <label for="manufacture">Manufacturer:</label>
-                            <input id="manufacture" name="manufacture" type="text" placeholder="Worz" title="Manufacturer of the item" required>
-                            
-                            <label for="serialnumber">S/N:</label>
-                            <input id="serialnumber" name="serialnumber" type="number" placeholder="0" title="Sereal Number of the item" required>
-        
-                            <label for="manufacture_number">M/N:</label>
-                            <input id="manufacture_number" name="manufacture_number" type="number" placeholder="0" title="Manufacturing number of the item" required>
-
-                            <label for="ownerddl">Owner:</label>
-                            <select id="ownerddl" name="ownerddl"></select>
-        
-                            <label for="description">Description:</label>
-                            <input id="description" name="description" type="text" placeholder="" title="A brief description of the item">
+                            <label for="firstname">First Name:</label>
+							  <input id="firstname" name="firstname" type="text" data-toggle="tooltip" placeholder="John" title="First Name of the New Customer you want to add" required>
+		
+							<label for="middlename">Middle Name:</label>
+							  <input id="middlename" name="middlename" type="text" data-toggle="tooltip" placeholder="M" title="Middle Name of the New Customer you want to add">
+		
+							<label for="lastname">Last Name:</label>
+							  <input id="lastname" name="lastname" type="text" data-toggle="tooltip" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
+		
+							<label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" data-toggle="tooltip" placeholder="123-456-7890"  title="The Phone number of the customer you want to add following the North American Numbering Plan eg 123-456-7890" required>
+							
+							<label for="streetnumber">Street Number:</label>
+							  <input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" data-toggle="tooltip" placeholder="1234" title="The Street number the Customer has there things delievered to"required>
+		
+							<label for="streetname">Street Name:</label>
+							<input id="streetname" name="streetname" type="text" data-toggle="tooltip" placeholder="Cedar Wood Drive"  title="The Street the Customer has there things delivered too" required>
+		
+							<label for="city">City:</label>
+							  <input id="city" name="city" type="text" data-toggle="tooltip" placeholder="Austin" title="The City the Customer Lives in"required>
+		
+							<label for="state">State:</label>
+							  <input id="state" name="state" type="text" data-toggle="tooltip" placeholder="Texas" title="The State the Customer Lives in"required>
+		
+							<label for="zip">Zip Code:</label>
+							  <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" data-toggle="tooltip" placeholder="73301" title="The Postal code of the Customer Following the Standard American Zip Code eg: 12345-6789"required>
                         </div>	
                         <div class="marg">
-                            <input type="submit" onclick="newEquipment()" value="Add Equipment">
+                            <input type="submit" onclick="newCustomer()" value="Add Customer">
                         </div>
 					</form>
 				</main>
@@ -154,6 +156,5 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/user.js"></script>
-        <script src="js/customerSelect.js"></script>
     </body>
 </html>

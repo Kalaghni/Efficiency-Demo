@@ -108,7 +108,7 @@ if (!editGlobal) {
 	    mytable += "</tr>"
     }
     catch {
-
+        console.log(storageTemp);
     }
 	
     }

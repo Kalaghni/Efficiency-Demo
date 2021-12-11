@@ -1,4 +1,4 @@
-function newClient(){
+function newCustomer(){
     let firstName = document.getElementById("firstname").value;
     let middleName = document.getElementById("middlename").value;
     let lastName = document.getElementById("lastname").value;
@@ -14,34 +14,35 @@ function newClient(){
         // Store data
         if (localStorage.length == 0){
             localStorage.setItem('customer', JSON.stringify({
-                ID: "",
+                ID: localStorage.length + 1,
                 FirstName: firstName,
                 MiddleName: middleName,
                 LastName: lastName,
                 Mobile: phone,
-                Street: streetNumber,
+                StreetNumber: streetNumber,
                 StreetName: streetName,
-                CityLocation: city,
+                City: city,
                 StateLocation: state,
                 ZipCode: zipCode,
             }));
         } else {
             localStorage.setItem('customer' + localStorage.length, JSON.stringify({
-                ID: "",
+                ID: localStorage.length,
                 FirstName: firstName,
                 MiddleName: middleName,
                 LastName: lastName,
                 Mobile: phone,
-                Street: streetNumber,
+                StreetNumber: streetNumber,
                 StreetName: streetName,
-                CityLocation: city,
-                StateLocation: state,
+                City: city,
+                State: state,
                 ZipCode: zipCode,
             }));
         }
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
+    location.assign("Table-Customer.html");
 }
 
 function newEquipment(){
@@ -51,6 +52,7 @@ function newEquipment(){
     let manufacture = document.getElementById("manufacture").value;
     let serial_number = document.getElementById("serialnumber").value;
     let m_number = document.getElementById("manufacture_number").value;
+    let owner = document.getElementById("owner").value;
     let description = document.getElementById("description").value;
     //From here data will be stored into a database
 
@@ -67,7 +69,8 @@ function newEquipment(){
                 Manufacture: manufacture,
                 SerialNumber: serial_number,
                 ProductNumber: m_number,
-                Description: description,
+                Owner: owner,
+                Description: description
             }));
         } else {
             localStorage.setItem('equipment' + localStorage.length, JSON.stringify({
@@ -78,7 +81,8 @@ function newEquipment(){
                 Manufacture: manufacture,
                 SerialNumber: serial_number,
                 ProductNumber: m_number,
-                Description: description,
+                Owner: owner,
+                Description: description
             }));
         }
     } else {
