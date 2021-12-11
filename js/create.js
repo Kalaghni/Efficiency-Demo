@@ -160,6 +160,50 @@ function newSaleEquip(){
     }
 }
 
+function newUser(){
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let email = document.getElementById("email").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let group = "";
+    try {
+        group = document.getElementById("group").value;
+    }
+    catch {
+        group = "Default"
+    }
+    
+    //From here data will be stored into a database
+
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        // Store data
+        let id = 0;
+        if (localStorage.length == 0){
+            localStorage.setItem('user', JSON.stringify({
+                Firstname: firstname,
+                Lastname: lastname,
+                Email: email,
+                Username : username,
+                Password : password,
+                Group : group
+            }));
+        } else {
+            localStorage.setItem('user' + localStorage.length, JSON.stringify({
+                Firstname: firstname,
+                Lastname: lastname,
+                Email: email,
+                Username : username,
+                Password : password,
+                Group : group
+            }));
+        }
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+}
+
 function allStorage() { 
 
     var values = [],

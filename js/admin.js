@@ -22,12 +22,30 @@ const ErrorMessage = document.getElementById("login-error-msg");
 
 BtnLog.addEventListener("click", (e) => {
     e.preventDefault();
-    const username = formlog.inputEmail.value;
+    const email = formlog.inputEmail.value;
     const password = formlog.inputPassword.value;
 
-    if (username === "dan@gmail.com" && password === "dan12345") {
-        location.assign("index.html");
-    } else {
-        alert("Account can't be found. Please try again.");
+    for (var key in localStorage) {
+        storageTemp = JSON.parse(localStorage[key]);
+        if (storageTemp.Email == email && storageTemp.Password == password) {
+            setUser(email);
+            location.assign("index.html");
+        }
     }
+        alert("Account can't be found. Please try again.");
 })
+
+function setUser(email) {
+    for (var key in localStorage) {
+        storageTemp = JSON.parse(localStorage[key]);
+        if (storageTemp.Email == email) {
+            localStorage.setItem('login_status', JSON.stringify({
+                Firstname: storageTemp.Firstname,
+                Lastname: storageTemp.Lastname,
+                Username: storageTemp.Username
+            }));
+            break;
+        }
+    }
+}
+
