@@ -45,6 +45,44 @@ function newCustomer(){
     location.assign("Table-Customer.html");
 }
 
+function newProduct(){
+    let desc = document.getElementById("desc").value;
+    let name = document.getElementById("name").value;
+    let stock = document.getElementById("stock").value;
+    let color = document.getElementById("color").value;
+    let itemnumber = document.getElementById("itemnumber").value;
+    let unitprice = document.getElementById("unitprice").value;
+    //From here data will be stored into a database
+
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        if (localStorage.length == 0){
+            localStorage.setItem('product', JSON.stringify({
+                ID: localStorage.length,
+                Desc: desc,
+                Name: name,
+                Stock: stock,
+                Color: color,
+                ItemNumber: itemnumber,
+                UnitPrice: unitprice
+            }));
+        } else {
+            localStorage.setItem('product' + localStorage.length, JSON.stringify({
+                ID: localStorage.length + 1,
+                Desc: desc,
+                Name: name,
+                Stock: stock,
+                Color: color,
+                ItemNumber: itemnumber,
+                UnitPrice: unitprice
+            }));
+        }
+         
+    } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+}
+
 function newEquipment(){
     let name = document.getElementById("name").value;
     let brand = document.getElementById("brand").value;
