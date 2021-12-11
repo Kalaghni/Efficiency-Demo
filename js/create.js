@@ -52,7 +52,7 @@ function newEquipment(){
     let manufacture = document.getElementById("manufacture").value;
     let serial_number = document.getElementById("serialnumber").value;
     let m_number = document.getElementById("manufacture_number").value;
-    let owner = document.getElementById("owner").value;
+    let owner = document.getElementById("ownerddl").value;
     let description = document.getElementById("description").value;
     //From here data will be stored into a database
 
@@ -62,32 +62,32 @@ function newEquipment(){
         let id = 0;
         if (localStorage.length == 0){
             localStorage.setItem('equipment', JSON.stringify({
-                ID: "",
                 Name: name,
                 Brand: brand,
                 Type: type,
                 Manufacture: manufacture,
                 SerialNumber: serial_number,
                 ProductNumber: m_number,
-                Owner: owner,
+                CustomerID: owner,
                 Description: description
             }));
         } else {
             localStorage.setItem('equipment' + localStorage.length, JSON.stringify({
-                ID: "",
                 Name: name,
                 Brand: brand,
                 Type: type,
                 Manufacture: manufacture,
                 SerialNumber: serial_number,
                 ProductNumber: m_number,
-                Owner: owner,
+                CustomerID: owner,
                 Description: description
             }));
         }
+         
     } else {
         document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
+   location.assign("Table-Item.html");
 }
 
 function newSaleCust(){

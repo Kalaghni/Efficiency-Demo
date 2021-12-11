@@ -28,9 +28,12 @@ window.addEventListener('DOMContentLoaded', event => {
 if (localStorage['login_status'] != undefined) {
     username = JSON.parse(localStorage['login_status']).Username;
     for (var key in localStorage) {
-        if (JSON.parse(localStorage[key]).hasOwnProperty('Email') && JSON.parse(localStorage[key]).Group == "Admin" && JSON.parse(localStorage[key]).Username == username) {
-            document.getElementById('admin-only-users').innerHTML = `<a class="nav-link" href="Table-User.html"><div class="sb-nav-link-icon"></div>Users</a>`;
+        try {
+            if (JSON.parse(localStorage[key]).hasOwnProperty('Email') && JSON.parse(localStorage[key]).Group == "Admin" && JSON.parse(localStorage[key]).Username == username) {
+                document.getElementById('admin-only-users').innerHTML = `<a class="nav-link" href="Table-User.html"><div class="sb-nav-link-icon"></div>Users</a>`;
+            }
         }
+        catch {}
     }
 }
 else {

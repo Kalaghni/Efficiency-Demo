@@ -34,12 +34,24 @@ function pushEdit(tbkey) {
 
 function onDelete(tbkey) {
     if (confirm('Are you sure to delete this record ?')) {
-        delete localStorage[tbkey];    
+        
+        for (var key in localStorage) {
+                try {
+                    var Equipment = JSON.parse(localStorage[key]);
+                    if (Equipment.hasOwnProperty('Description') && Equipment.CustomerID == JSON.parse(localStorage[tbkey]).ID) {
+                        console.log('cascade deleted: ' + key);
+                        delete localStorage[key];
+                    }
+                }
+                catch {}
+            
+        } 
+        delete localStorage[tbkey];   
         location.reload();
     }
 }
 
-editGlobal = false;
+let editGlobal = false;
 
 function emptyTable() {
     mytable = "<thead>" + "<tr>" 
