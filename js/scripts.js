@@ -33,6 +33,12 @@ if (localStorage['login_status'] != undefined) {
         }
     }
 }
+else {
+    location.assign("login.html")
+}
+
+
+
 
 function Logout() {
     if (localStorage['login_status'] != undefined) {
@@ -40,4 +46,3 @@ function Logout() {
     } 
 }
 
-//TO-DO: Calculate price of sale total

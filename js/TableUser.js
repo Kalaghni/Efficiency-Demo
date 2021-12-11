@@ -1,41 +1,3 @@
-var custArray = ["firstname", "lastname", "username", "password", "group"];
-var selectedRow = null
-
-function onFormSubmit() {
-    var formData = readFormData();
-    if (selectedRow == null)
-        insertNewRecord(formData);
-    else
-        updateRecord(formData);
-    resetForm();
-}
-
-function readFormData() {
-    var formData = {};
-    custArray.forEach((item) => {
-        formData[item] = document.getElementById(item).value;
-    });
-    return formData;
-}
-
-function insertNewRecord(data) {
-    var table = document.getElementById("datatablesSimple").getElementsByTagName('tbody')[0];
-    var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.firstname;
-    cell2 = newRow.insertCell(1);
-    cell2.innerHTML = data.lastname;
-    cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.username;
-    cell5 = newRow.insertCell(4);
-    cell5.innerHTML = data.password;
-    cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.group;
-    cell7= newRow.insertCell(9);
-    cell7.innerHTML = `<a href="#" onClick="onEdit(this)">Edit</a>`;
-    cell8 = newRow.insertCell(10);
-    cell8.innerHTML = `<a href="#" onClick="onDelete(this)">Delete</a>`;
-}
 
 function pushEdit(tbkey) {
     for (var key in localStorage) {
@@ -60,13 +22,6 @@ function pushEdit(tbkey) {
     location.reload();
 }
 
-
-function updateRecord(formData) {
-    custArray.forEach((item, index) => {
-        var thName = eval(`formData.${item}`)
-        selectedRow.cells[index].innerHTML = thName;
-    })
-}
 
 function onDelete(tbkey) {
     if (confirm('Are you sure to delete this record ?')) {
