@@ -34,4 +34,10 @@ if (localStorage['login_status'] != undefined) {
     }
 }
 
+function Logout() {
+    if (localStorage['login_status'] != undefined) {
+        delete localStorage['login_status'];
+    } 
+}
+
 //TO-DO: Calculate price of sale total
