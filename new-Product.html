@@ -47,15 +47,15 @@
                                 Home
                             </a>
                             <a class="nav-link" href="Table-Customer.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Customers
                             </a>
                             <a class="nav-link" href="Table-Item.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Products
                             </a>
                             <a class="nav-link" href="Table-Sale.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Sales
                             </a>
                             <a class="nav-link" href="Invoice.html">
@@ -107,22 +107,27 @@
                             <input id="desc" name="desc" type="text"placeholder="Some description" title="Description of the product" required>
 
                             <label for="name">Name:</label>
-                              <input id="name" name="name" type="text"placeholder="Motor Oil " title="Name of the product" required>
+                            <input id="name" name="name" type="text"placeholder="Motor Oil " title="Name of the product" required>
         
                             <label for="stock">Stock:</label>
-                              <input id="stock" name="stock" type="number" placeholder="0" title="Amount of items in stock" required>
+                            <input id="stock" name="stock" type="number" placeholder="0" title="Amount of items in stock" required>
         
                             <label for="color">Color:</label>
-                              <input id="color" name="color" type="text" placeholder="Blue" Title="Color of the product" required>
+                            <input id="color" name="color" type="text" placeholder="Blue" Title="Color of the product" required>
         
                             <label for="itemnumber">Item Number:</label>
                             <input id="itemnumber" name="itemnumber" type="number" placeholder="0" title="Item number of the product" required>
                             
                             <label for="unitprice">Unit Price:</label>
                             <input id="unitprice" name="unitprice" type="number" placeholder="0" title="Price per item" required>
-                        </div>	
-                        <div class="marg">
-                            <input type="submit" onclick="newProduct()" value="Add Product">
+                        
+                            <div>
+                                <input type="submit" onclick="newProduct()" value="Add Product">
+                            </div>
+                        
+                            <div>
+                                <a href="Table-Product.html">Return to Product Table</a>
+                            </div>
                         </div>
 					</form>
 				</main>

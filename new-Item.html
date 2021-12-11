@@ -47,15 +47,15 @@
                                 Home
                             </a>
                             <a class="nav-link" href="Table-Customer.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Customers
                             </a>
                             <a class="nav-link" href="Table-Item.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Equipments
                             </a>
                             <a class="nav-link" href="Table-Sale.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Sales
                             </a>
                             <a class="nav-link" href="Invoice.html">
@@ -104,13 +104,13 @@
 					<form action="Table-Item.html">
 						<div class="marg">
                             <label for="name">Name:</label>
-                              <input id="name" name="name" type="text"placeholder="M2000 Robotic Lawn Mower Blade " title="Name of the Item you are adding" required>
+                            <input id="name" name="name" type="text"placeholder="M2000 Robotic Lawn Mower Blade " title="Name of the Item you are adding" required>
         
                             <label for="brand">Brand:</label>
-                              <input id="brand" name="brand" type="text" placeholder="Landroid" title="Brand that Owns the item" required>
+                            <input id="brand" name="brand" type="text" placeholder="Landroid" title="Brand that Owns the item" required>
         
                             <label for="type">Equipment Type:</label>
-                              <input id="type" name="type" type="text" placeholder="Lawn Mower" Title="Type of Equipment it is eg: Lawn Mower, " required>
+                            <input id="type" name="type" type="text" placeholder="Lawn Mower" Title="Type of Equipment it is eg: Lawn Mower, " required>
         
                             <label for="manufacture">Manufacturer:</label>
                             <input id="manufacture" name="manufacture" type="text" placeholder="Worz" title="Manufacturer of the item" required>
@@ -126,9 +126,14 @@
         
                             <label for="description">Description:</label>
                             <input id="description" name="description" type="text" placeholder="" title="A brief description of the item">
-                        </div>	
-                        <div class="marg">
-                            <input type="submit" onclick="newEquipment()" value="Add Equipment">
+                        
+                            <div>
+                                <input type="submit" onclick="newEquipment()" value="Add Equipment">
+                            </div>
+
+                            <div>
+                                <a href="Table-Item.html">Return to Equipment Table</a>
+                            </div>
                         </div>
 					</form>
 				</main>

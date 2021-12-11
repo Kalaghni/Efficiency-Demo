@@ -50,42 +50,44 @@ emptyTable();
 function onLoad(editkey) {
     emptyTable();
     for (var key in localStorage){
-    mytable += "<tr>"
-    try {
-    storageTemp = JSON.parse(localStorage[key]);
-    if (storageTemp.hasOwnProperty('Desc')){
-        if (editkey == key.toString()){
-            mytable += `<td><input id="desc" name="desc" type="text" value="` + storageTemp.Desc + `"></td>`;
-            mytable += `<td><input id="name" name="name" type="text" value="` + storageTemp.Name + `"></td>`;
-            mytable += `<td><input id="stock" name="stock" type="number" value="` + storageTemp.Stock + `"></td>`;
-            mytable += `<td><input id="color" name="color" type="text" value="` + storageTemp.Color + `"></td>`;
-            mytable += `<td><input id="itemnumber" name="itemnumber" type="number" value="` + storageTemp.ItemNumber + `"></td>`;
-            mytable += `<td><input id="unitprice" name="unitprice" type="number" value="` + storageTemp.UnitPrice + `"></td>`;
-            mytable += "<td>" + `<a href="#" onClick="pushEdit('` + editkey.toString() + `')">Submit</a> <a href="#" onClick="location.reload()">Cancel</a>` + "</td>";
-        } 
-        else {
-            mytable += "<td>" + storageTemp.Desc + "</td>";
-            mytable += "<td>" + storageTemp.Name + "</td>";
-            mytable += "<td>" + storageTemp.Stock + "</td>";
-            mytable += "<td>" + storageTemp.Color + "</td>";
-            mytable += "<td>" + storageTemp.ItemNumber + "</td>";
-            mytable += "<td>" + storageTemp.UnitPrice + "</td>";
-            mytable += "<td></td>";
-        }
-        
-    }
-    mytable += "</tr>"
-}
-catch{}
-}
-mytable += "</tbody>"
-document.getElementById("datatablesSimple").innerHTML = mytable;
- 
-}
-
-    for (var key in localStorage){
         mytable += "<tr>"
         try {
+            storageTemp = JSON.parse(localStorage[key]);
+            if (storageTemp.hasOwnProperty('Desc')){
+                if (editkey == key.toString()){
+                    mytable += `<td><input id="desc" name="desc" type="text" value="` + storageTemp.Desc + `"></td>`;
+                    mytable += `<td><input id="name" name="name" type="text" value="` + storageTemp.Name + `"></td>`;
+                    mytable += `<td><input id="stock" name="stock" type="number" value="` + storageTemp.Stock + `"></td>`;
+                    mytable += `<td><input id="color" name="color" type="text" value="` + storageTemp.Color + `"></td>`;
+                    mytable += `<td><input id="itemnumber" name="itemnumber" type="number" value="` + storageTemp.ItemNumber + `"></td>`;
+                    mytable += `<td><input id="unitprice" name="unitprice" type="number" value="` + storageTemp.UnitPrice + `"></td>`;
+                    mytable += "<td>" + `
+                        <a class="crud-green" onClick="pushEdit('` + editkey.toString() + `')">Submit</a> 
+                        <a class="crud-red" onClick="location.reload()">Cancel</a>` + 
+                    "</td>";
+                } 
+                else {
+                    mytable += "<td>" + storageTemp.Desc + "</td>";
+                    mytable += "<td>" + storageTemp.Name + "</td>";
+                    mytable += "<td>" + storageTemp.Stock + "</td>";
+                    mytable += "<td>" + storageTemp.Color + "</td>";
+                    mytable += "<td>" + storageTemp.ItemNumber + "</td>";
+                    mytable += "<td>" + storageTemp.UnitPrice + "</td>";
+                    mytable += "<td></td>";
+                }
+                
+            }
+            mytable += "</tr>"
+        }
+        catch{}
+    }
+    mytable += "</tbody>"
+    document.getElementById("datatablesSimple").innerHTML = mytable;
+}
+
+for (var key in localStorage){
+    mytable += "<tr>"
+    try {
         storageTemp = JSON.parse(localStorage[key]);
         if (storageTemp.hasOwnProperty('Desc')){
             mytable += "<td>" + storageTemp.Desc + "</td>";
@@ -94,12 +96,14 @@ document.getElementById("datatablesSimple").innerHTML = mytable;
             mytable += "<td>" + storageTemp.Color + "</td>";
             mytable += "<td>" + storageTemp.ItemNumber + "</td>";
             mytable += "<td>" + storageTemp.UnitPrice + "</td>";
-            mytable += "<td>" + `<a href="#" onClick="onLoad('` + key.toString() + `')">Edit</a> <a href="#" onClick="onDelete('` + key + `')">Delete</a>` + "</td>";
+            mytable += "<td>" + `
+                <a class="crud-green" onClick="onLoad('` + key.toString() + `')">Edit</a> 
+                <a class="crud-red" onClick="onDelete('` + key + `')">Delete</a>` + 
+            "</td>";
         }
         mytable += "</tr>"
     }
     catch{}
-    }
-    mytable += "</tbody>"
-    document.getElementById("datatablesSimple").innerHTML = mytable;
-
+}
+mytable += "</tbody>"
+document.getElementById("datatablesSimple").innerHTML = mytable;

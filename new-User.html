@@ -47,15 +47,15 @@
                                 Home
                             </a>
                             <a class="nav-link" href="Table-Customer.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Customers
                             </a>
                             <a class="nav-link" href="Table-Item.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Equipments
                             </a>
                             <a class="nav-link" href="Table-Sale.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Sales
                             </a>
                             <a class="nav-link" href="Invoice.html">
@@ -103,25 +103,30 @@
 					<form action="Table-User.html" method="get" target="_blank">
 						<div class="marg">
                             <label for="firstname">First Name:</label>
-                              <input id="firstname" name="firstname" type="text"placeholder="John" title="First name of user" required>
+                            <input id="firstname" name="firstname" type="text"placeholder="John" title="First name of user" required>
         
                             <label for="lastname">Last Name:</label>
-                              <input id="lastname" name="lastname" type="text" placeholder="Smith" title="Last name of user" required>
+                            <input id="lastname" name="lastname" type="text" placeholder="Smith" title="Last name of user" required>
 
                             <label for="email">Email:</label>
-                              <input id="email" name="email" type="text" placeholder="jsmith01@gmail.com" title="Email of user" required>
+                            <input id="email" name="email" type="text" placeholder="jsmith01@gmail.com" title="Email of user" required>
         
                             <label for="username">Username:</label>
-                              <input id="username" name="username" type="text" placeholder="jsmith01" Title="Username for login" required>
+                            <input id="username" name="username" type="text" placeholder="jsmith01" Title="Username for login" required>
         
                             <label for="password">Password:</label>
                             <input id="password" name="password" type="password" placeholder="********" title="Password for login" required>
                             
                             <label for="group">Group:</label>
                             <input id="group" name="group" type="text" placeholder="Admin" title="User group" required>
-                        </div>	
-                        <div class="marg">
-                            <input type="submit" onclick="newUser()" value="Add User">
+                        
+                            <div>
+                                <input type="submit" onclick="newUser()" value="Add User">
+                            </div>
+
+                            <div>
+                                <a href="Table-User.html">Return to User Table</a>
+                            </div>
                         </div>
 					</form>
 				</main>

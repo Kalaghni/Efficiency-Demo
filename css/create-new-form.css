@@ -19,7 +19,7 @@ input[type="number"], input[type="date"] {
 
 input[type="submit"] {
 	display: inline-block;
-	margin-top: 20px;
+	margin: 20px 0 10px 0;
 	padding: 10px 30px;
 	border-radius: 10px;
 

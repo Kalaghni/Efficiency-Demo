@@ -1,5 +1,3 @@
-
-
 function pushEdit(tbkey) {
     for (var key in localStorage) {
         if (key == tbkey) {
@@ -30,8 +28,6 @@ function pushEdit(tbkey) {
     }
     location.reload();
 }
-
-
 
 function onDelete(tbkey) {
     if (confirm('Are you sure to delete this record ?')) {
@@ -76,51 +72,50 @@ emptyTable();
 function onLoad(editkey) {
     emptyTable();
     if (localStorage.length > 0) {
-    for (var key in localStorage){
-    try {
-        storageTemp = JSON.parse(localStorage[key]);
-        mytable += "<tr>"
-        if (storageTemp.hasOwnProperty('ZipCode')){
-            if (editkey == key.toString()){
-                mytable += `<td><input id="firstname" name="firstname" type="text" value="` + storageTemp.FirstName + `"></td>`;
-                mytable += `<td><input id="middlename" name="middlename" type="text" value="` + storageTemp.MiddleName + `"></td>`;
-                mytable += `<td><input id="lastname" name="lastname" type="text" value="` + storageTemp.LastName + `"></td>`;
-                mytable += `<td><input id="phone" name="phone" type="tel" value="` + storageTemp.Mobile + `"></td>`;
-                mytable += `<td><input id="streetnumber" name="streetnumber" type="text" value="` + storageTemp.StreetNumber + `"></td>`;
-                mytable += `<td><input id="streetname" name="streetname" type="text" value="` + storageTemp.StreetName + `"></td>`;
-                mytable += `<td><input id="city" name="city" type="text" value="` + storageTemp.City + `"></td>`;
-                mytable += `<td><input id="state" name="state" type="text" value="` + storageTemp.State + `"></td>`;
-                mytable += `<td><input id="zip" name="zip" type="text" value="` + storageTemp.ZipCode + `"></td>`;
-                mytable += "<td>" + `<a href="#" onClick="pushEdit('` + key.toString() + `')">Submit</a> <a href="#" onClick="location.reload()">Cancel</a>` + "</td>";
-            } 
-            else {
-                mytable += "<td>" + storageTemp.FirstName + "</td>";
-                mytable += "<td>" + storageTemp.MiddleName + "</td>";
-                mytable += "<td>" + storageTemp.LastName + "</td>";
-                mytable += "<td>" + storageTemp.Mobile + "</td>";
-                mytable += "<td>" + storageTemp.StreetNumber + "</td>";
-                mytable += "<td>" + storageTemp.StreetName + "</td>";
-                mytable += "<td>" + storageTemp.City + "</td>";
-                mytable += "<td>" + storageTemp.State + "</td>";
-                mytable += "<td>" + storageTemp.ZipCode + "</td>";
-                mytable += "<td></td>"; 
-            }      
+        for (var key in localStorage){
+            try {
+                storageTemp = JSON.parse(localStorage[key]);
+                mytable += "<tr>"
+                if (storageTemp.hasOwnProperty('ZipCode')){
+                    if (editkey == key.toString()){
+                        mytable += `<td><input id="firstname" name="firstname" type="text" value="` + storageTemp.FirstName + `"></td>`;
+                        mytable += `<td><input id="middlename" name="middlename" type="text" value="` + storageTemp.MiddleName + `"></td>`;
+                        mytable += `<td><input id="lastname" name="lastname" type="text" value="` + storageTemp.LastName + `"></td>`;
+                        mytable += `<td><input id="phone" name="phone" type="tel" value="` + storageTemp.Mobile + `"></td>`;
+                        mytable += `<td><input id="streetnumber" name="streetnumber" type="text" value="` + storageTemp.StreetNumber + `"></td>`;
+                        mytable += `<td><input id="streetname" name="streetname" type="text" value="` + storageTemp.StreetName + `"></td>`;
+                        mytable += `<td><input id="city" name="city" type="text" value="` + storageTemp.City + `"></td>`;
+                        mytable += `<td><input id="state" name="state" type="text" value="` + storageTemp.State + `"></td>`;
+                        mytable += `<td><input id="zip" name="zip" type="text" value="` + storageTemp.ZipCode + `"></td>`;
+                        mytable += "<td>" + `
+                        <a class="crud-green" onClick="pushEdit('` + key.toString() + `')">Submit</a> 
+                        <a class="crud-red" onClick="location.reload()">Cancel</a>` + 
+                        "</td>";
+                    } 
+                    else {
+                        mytable += "<td>" + storageTemp.FirstName + "</td>";
+                        mytable += "<td>" + storageTemp.MiddleName + "</td>";
+                        mytable += "<td>" + storageTemp.LastName + "</td>";
+                        mytable += "<td>" + storageTemp.Mobile + "</td>";
+                        mytable += "<td>" + storageTemp.StreetNumber + "</td>";
+                        mytable += "<td>" + storageTemp.StreetName + "</td>";
+                        mytable += "<td>" + storageTemp.City + "</td>";
+                        mytable += "<td>" + storageTemp.State + "</td>";
+                        mytable += "<td>" + storageTemp.ZipCode + "</td>";
+                        mytable += "<td></td>"; 
+                    }      
+                }
+                mytable += "</tr>"
+            }
+            catch {}
+        
         }
-	    mytable += "</tr>"
+        mytable += "</tbody>"
+        document.getElementById("datatablesSimple").innerHTML = mytable;
     }
-    catch {
+}
 
-    }
-	
-}
-mytable += "</tbody>"
-document.getElementById("datatablesSimple").innerHTML = mytable;
-}
-}
 //Fill data into the table
-
-
-
 if (!editGlobal) {
     if (localStorage.length > 0) {
         for (var key in localStorage){
@@ -137,16 +132,16 @@ if (!editGlobal) {
                     mytable += "<td>" + storageTemp.City + "</td>";
                     mytable += "<td>" + storageTemp.State + "</td>";
                     mytable += "<td>" + storageTemp.ZipCode + "</td>";
-                    mytable += "<td>" + `<a href="#" onClick="onLoad('` + key.toString() + `')">Edit</a> <a href="#" onClick="onDelete('` + key.toString() + `')">Delete</a>` + "</td>";   
+                    mytable += "<td>" + `
+                        <a class="crud-green" onClick="onLoad('` + key.toString() + `')">Edit</a> 
+                        <a class="crud-red" onClick="onDelete('` + key.toString() + `')">Delete</a>` + 
+                    "</td>";
                 }
                 mytable += "</tr>"
             }
-            catch {
-
-            }
-        
+            catch {}
         }
-    mytable += "</tbody>"
-    document.getElementById("datatablesSimple").innerHTML = mytable;
+        mytable += "</tbody>"
+        document.getElementById("datatablesSimple").innerHTML = mytable;
     }
 }

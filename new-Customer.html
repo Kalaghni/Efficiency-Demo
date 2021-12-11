@@ -47,15 +47,15 @@
                                 Home
                             </a>
                             <a class="nav-link" href="Table-Customer.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Customers
                             </a>
                             <a class="nav-link" href="Table-Item.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Equipments
                             </a>
                             <a class="nav-link" href="Table-Sale.html">
-                                <div class="sb-nav-link-icon"></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Review Sales
                             </a>
                             <a class="nav-link" href="Invoice.html">
@@ -103,34 +103,39 @@
 					<form action="Table-Customer.html">
 						<div class="marg">
                             <label for="firstname">First Name:</label>
-							  <input id="firstname" name="firstname" type="text" data-toggle="tooltip" placeholder="John" title="First Name of the New Customer you want to add" required>
+							<input id="firstname" name="firstname" type="text" data-toggle="tooltip" placeholder="John" title="First Name of the New Customer you want to add" required>
 		
 							<label for="middlename">Middle Name:</label>
-							  <input id="middlename" name="middlename" type="text" data-toggle="tooltip" placeholder="M" title="Middle Name of the New Customer you want to add">
+							<input id="middlename" name="middlename" type="text" data-toggle="tooltip" placeholder="M" title="Middle Name of the New Customer you want to add">
 		
 							<label for="lastname">Last Name:</label>
-							  <input id="lastname" name="lastname" type="text" data-toggle="tooltip" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
+							<input id="lastname" name="lastname" type="text" data-toggle="tooltip" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
 		
 							<label for="phone">Phone Number:</label>
                             <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" data-toggle="tooltip" placeholder="123-456-7890"  title="The Phone number of the customer you want to add following the North American Numbering Plan eg 123-456-7890" required>
 							
 							<label for="streetnumber">Street Number:</label>
-							  <input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" data-toggle="tooltip" placeholder="1234" title="The Street number the Customer has there things delievered to"required>
+							<input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" data-toggle="tooltip" placeholder="1234" title="The Street number the Customer has there things delievered to"required>
 		
 							<label for="streetname">Street Name:</label>
 							<input id="streetname" name="streetname" type="text" data-toggle="tooltip" placeholder="Cedar Wood Drive"  title="The Street the Customer has there things delivered too" required>
 		
 							<label for="city">City:</label>
-							  <input id="city" name="city" type="text" data-toggle="tooltip" placeholder="Austin" title="The City the Customer Lives in"required>
+							<input id="city" name="city" type="text" data-toggle="tooltip" placeholder="Austin" title="The City the Customer Lives in"required>
 		
 							<label for="state">State:</label>
-							  <input id="state" name="state" type="text" data-toggle="tooltip" placeholder="Texas" title="The State the Customer Lives in"required>
+							<input id="state" name="state" type="text" data-toggle="tooltip" placeholder="Texas" title="The State the Customer Lives in"required>
 		
 							<label for="zip">Zip Code:</label>
-							  <input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" data-toggle="tooltip" placeholder="73301" title="The Postal code of the Customer Following the Standard American Zip Code eg: 12345-6789"required>
-                        </div>	
-                        <div class="marg">
-                            <input type="submit" onclick="newCustomer()" value="Add Customer">
+							<input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" data-toggle="tooltip" placeholder="73301" title="The Postal code of the Customer Following the Standard American Zip Code eg: 12345-6789"required>
+                        
+                            <div>
+                                <input type="submit" onclick="newCustomer()" value="Add Customer">
+                            </div>
+
+                            <div>
+                                <a href="Table-Customer.html">Return to Customer Table</a>
+                            </div>
                         </div>
 					</form>
 				</main>
