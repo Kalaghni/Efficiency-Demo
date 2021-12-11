@@ -42,7 +42,8 @@ function setUser(email) {
             localStorage.setItem('login_status', JSON.stringify({
                 Firstname: storageTemp.Firstname,
                 Lastname: storageTemp.Lastname,
-                Username: storageTemp.Username
+                Username: storageTemp.Username,
+                Group: storageTemp.Group
             }));
             break;
         }
