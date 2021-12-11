@@ -31,7 +31,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Emma
+                        <div id="user"></div>
                     </div>
                 </nav>
             </div>
@@ -121,19 +121,16 @@
         
                             <label for="description">Description:</label>
                             <input id="description" name="description" type="text" placeholder="" title="A brief description of the item">
-                            
-                            <div class="marg">
-                                <input type="submit" onclick="newEquipment()" value="Add Equipment">
-                            </div>	
                         </div>	
-                        
+                        <div class="marg">
+                            <input type="submit" onclick="newEquipment()" value="Add Equipment">
+                        </div>
 					</form>
-                    
 				</main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div class="text-muted">Copyright &copy; Emma's Motors 2021</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -151,5 +148,6 @@
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/user.js"></script>
     </body>
 </html>

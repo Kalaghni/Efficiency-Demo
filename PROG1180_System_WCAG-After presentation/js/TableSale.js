@@ -4,6 +4,8 @@ function allStorage() { //Get data from local storage
         keys = Object.keys(localStorage),
         i = keys.length;
 
+    console.log(localStorage);
+
     while (i--) {
         values.push(localStorage.getItem(keys[i]));
     }
@@ -15,7 +17,7 @@ let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
 console.log(mountains);
 
 
-var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone" + "</th>"
+var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone Number" + "</th>"
                                 + "<th>" + "Customer Name" + "</th>"
                                 + "<th>" + "Date" + "</th>"
                                 + "<th>" + "Type" + "</th>"
@@ -43,18 +45,20 @@ for (var key in mountains){
 }
                                 
 saleCustTable += "</tbody>"
-document.getElementById("datatablesSimple").innerHTML = saleCustTable;
+document.getElementById("SaleCustTable").innerHTML = saleCustTable;
+                                
+var saleEquipmentTable = "<thead>" + "<tr>" + "<th>" + "Name" + "</th>" 
+                                + "<th>" + "Quantity" + "</th>" 
+                                + "<th>" + "Price" + "</th>" 
+                                + "</tr>" + "</thead>" + "<tbody>";
 
-//sale equipment
-var saleEquipmentTable = "<thead>" + "<tr>" 
-                       + "<th>" + "Name" + "</th>" 
-                       + "<th>" + "Quantity" + "</th>" 
-                       + "<th>" + "Price" + "</th>" 
-                       + "</tr>" + "</thead>" + "<tbody>";
+
 
 for (var key in mountains){
+    //console.log(key);
     saleEquipmentTable += "<tr>"
     if (mountains[key].hasOwnProperty('Quantity')){
+        console.log(mountains[key].FirstName);
         saleEquipmentTable += "<td>" + mountains[key].Name + "</td>";
         saleEquipmentTable += "<td>" + mountains[key].Quantity + "</td>";
         saleEquipmentTable += "<td>" + mountains[key].Price + "</td>";
@@ -63,4 +67,5 @@ for (var key in mountains){
 }
 
 saleEquipmentTable += "</tbody>"
+
 document.getElementById("SaleEquipTable").innerHTML = saleEquipmentTable;
