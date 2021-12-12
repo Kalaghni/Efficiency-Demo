@@ -14,9 +14,9 @@ function pushEdit(tbkey) {
 
             localStorage[key] = JSON.stringify({
                         ID: id,
-                        Firstname: firstname,
-                        Middlename: middlename,
-                        Lastname: lastname,
+                        FirstName: firstname,
+                        MiddleName: middlename,
+                        LastName: lastname,
                         Mobile: phone,
                         StreetNumber : streetnumber,
                         StreetName : streetname,
