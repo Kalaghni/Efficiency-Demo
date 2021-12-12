@@ -130,6 +130,26 @@ function newEquipment(){
 
 let count = 0;
 var tempItems;
+let tempQty = 0;
+
+function setQty(ct) {
+        for (var key in localStorage) {
+            try {
+                var storageTemp = JSON.parse(localStorage[key]);            
+                let count2 = 0;
+                if (storageTemp.hasOwnProperty('Desc')) {
+                    count2++;
+                    if (count2 == 1) {
+                        tempQty = storageTemp.Stock;
+                    }
+                }
+            }
+            catch {}
+        }
+    tempItems.replace('qty_here' + ct, tempQty);
+    document.getElementById('saleitems').innerHTML = tempItems;
+}
+
 
 
 function newSaleItem() {
@@ -144,13 +164,19 @@ function newSaleItem() {
     if (count > 1) {
         tempItems += "------------------------------"; 
     }
-
-    tempItems += `<label for='saleitems` + count + `' >Product</label><select id='saleitems` + count + `' name='saleitems` + count + `'>`;
+    
+    tempItems += `<label for='saleitems` + count + `' >Product</label><select id='saleitems` + count + `' name='saleitems'>`;
     for (var key in localStorage) {
         try {
             var storageTemp = JSON.parse(localStorage[key]);
+            
+            let count2 = 0;
             if (storageTemp.hasOwnProperty('Desc')) {
+                count2++;
                 tempItems += `<option value ='` + storageTemp.ID + `'>` + storageTemp.Name + `</option>`;
+                if (count2 == 1) {
+                    tempQty = storageTemp.Stock;
+                }
             }
         }
         catch {}

@@ -41,13 +41,11 @@ try{
                 for(var key4 in localStorage) {
                     var storageTemp4 = JSON.parse(localStorage[key4]);
                     if (storageTemp4.hasOwnProperty('ProductID') && storageTemp4.ID == storageTemp.ID) {
-                        console.log(storageTemp4.ID);
                         try {
                             for (var key5 in localStorage) {
                            
                             var storageTemp5  = JSON.parse(localStorage[key5]);
                             if (storageTemp5.hasOwnProperty('Desc') && storageTemp4.ProductID == storageTemp5.ID) {
-                                console.log(key5);
                                 count++;
                                 products[count] = {
                                     Name : storageTemp5.Name,
@@ -74,7 +72,7 @@ try{
             saleCustTable += "<td>" + storageTemp.Type + "</td>";
             try {
                 for (let i = 1; i <= count; i++) {
-                productTxt += products[i].Name + "(" + products[i].Qty + ")</br>";
+                productTxt += products[i].Name + "  x " + products[i].Qty + "</br>";
             }
             }catch{}
             
