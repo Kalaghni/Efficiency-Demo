@@ -9,6 +9,7 @@
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/wcag.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -51,31 +52,32 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-<<<<<<< Updated upstream
-                        <form action="example-Invoice.html" method="get">
-=======
->>>>>>> Stashed changes
-                            <h1 class="mt-4">Invoice</h1>
-                            <div class="card mb-2">
-                                <div class="card-header">
-                                    <i class="fas fa-table me-1"></i>
-                                    Invoice Search
-                                </div>                         
+                        <h1 class="mt-4">Invoice</h1>
+                        <div class="card mb-2">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Invoice Search
+                            </div>                         
+                            <form>
                                 <label for="saleid">Order ID:</label>
                                 <div>
                                     <input id="saleid" name="saleid" type="text" title="Order number tied to the sale record" required>
                                 </div>
                                 <div class="marg">
-                                    <input type="button" onclick="findInvoice()" value="Find Invoice(s)">
+                                    <input class="crud-dark" type="button" onclick="findInvoice()" value="Find Invoice(s)">
                                 </div>
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-table me-1"></i>Sale Database
-                                    </div>
-                                    <div class="card-body">
-                                        <table id="datatablesSimple"></table>
-                                    </div>
+                            </form>
+                            
+                            
+                        </div>
+                        <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>Found Invoice
                                 </div>
+                                <div class="card-body">
+                                    <table id="datatablesSimple"></table>
+                                </div>
+                            </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -101,5 +103,6 @@
         <script src="js/user.js"></script>
         <script src="js/scripts.js"></script>
         <script src="js/InvoiceDetail.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>

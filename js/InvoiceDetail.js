@@ -11,7 +11,16 @@ var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "#" + "</th>"
 let saleid = 0;
 
 function findInvoice() {
-    saleid = document.getElementById("saleid").value;
+
+    var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "#" + "</th>"
+    + "<th>" + "Employee Name" + "</th>"
+    + "<th>" + "Customer Name" + "</th>"
+    + "<th>" + "Date" + "</th>"
+    + "<th>" + "Type" + "</th>"
+    + "<th>" + "Products" + "</th>"
+    + "</tr>" + "</thead>" + "<tbody>";
+
+    let saleid = document.getElementById("saleid").value;
     for (var key in localStorage){
         //console.log(key);
         try{
@@ -74,8 +83,8 @@ function findInvoice() {
                     var productTxt = "Item List</br>";
 
                     saleCustTable += "<td>" + storageTemp.ID + "</td>";
-                    saleCustTable += "<td>" + customername +  "</td>";
-                    saleCustTable += "<td>" + employeename + "</td>";
+                    saleCustTable += "<td>" + employeename +  "</td>";
+                    saleCustTable += "<td>" + customername + "</td>";
                     saleCustTable += "<td>" + storageTemp.Date + "</td>";
                     saleCustTable += "<td>" + storageTemp.Type + "</td>";
                     try {
