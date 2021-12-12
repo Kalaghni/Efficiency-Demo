@@ -45,13 +45,13 @@ function newCustomer(){
     location.assign("Table-Customer.html");
 }
 
-function newProduct(){
-    let desc = document.getElementById("desc").value;
-    let name = document.getElementById("name").value;
-    let stock = document.getElementById("stock").value;
-    let color = document.getElementById("color").value;
-    let itemnumber = document.getElementById("itemnumber").value;
-    let unitprice = document.getElementById("unitprice").value;
+function newProduct(itemindex){
+    let desc = document.getElementById("desc" + itemindex).value;
+    let name = document.getElementById("name" + itemindex).value;
+    let stock = document.getElementById("stock" + itemindex).value;
+    let color = document.getElementById("color" + itemindex).value;
+    let itemnumber = document.getElementById("itemnumber" + itemindex).value;
+    let unitprice = document.getElementById("unitprice" + itemindex).value;
     //From here data will be stored into a database
 
     // Check browser support
@@ -128,17 +128,53 @@ function newEquipment(){
    location.assign("Table-Item.html");
 }
 
-function newSaleCust(){
-    let phone = document.getElementById("phone").value;
-    let customername = document.getElementById("customername").value;
-    letDdate = document.getElementById("date").value;
+let count = 0;
+var tempItems;
+
+
+function newSaleItem() {
+    count++; 
+
+
+    if (count != 1) {
+        tempItems = tempItems.replace(`<input type="button" onclick="newSaleItem()" value="+">`, '');
+    }
+    
+    
+    if (count > 1) {
+        tempItems += "------------------------------"; 
+    }
+
+    tempItems += `<label for='saleitems` + count + `' >Product</label><select id='saleitems` + count + `' name='saleitems` + count + `'>`;
+    for (var key in localStorage) {
+        try {
+            var storageTemp = JSON.parse(localStorage[key]);
+            if (storageTemp.hasOwnProperty('Desc')) {
+                tempItems += `<option value ='` + storageTemp.ID + `'>` + storageTemp.Name + `</option>`;
+            }
+        }
+        catch {}
+    }
+
+    tempItems += `</select><label for='qty` + count + `' >Quantity</label><input id="qty` + count + `" name="qty` + count + `" type="number">
+    
+    </br></br><input type="button" onclick="newSaleItem()" value="+">`;
+   
+    tempItems = tempItems.replace("undefined", "");
+
+    document.getElementById('saleitems').innerHTML = tempItems;
+}
+
+function newSale(){
+    let customer = document.getElementById("ownerddl").value;   
+    let employee = document.getElementById("empddl").value;
+    let date = document.getElementById("date").value;
     let type = document.getElementById("type").value;
-    let empName = document.getElementById("empName").value;
-    let subTotal = document.getElementById("subTotal").value;
-    let tax = document.getElementById("tax").value;
-    let total = document.getElementById("total").value;
-    //From here data will be stored into a database
-    newSaleEquip()
+
+    for (let i = 1; i <= count; i++) {
+        newSaleProduct(localStorage.length, document.getElementById('saleitems' + count).value);
+    }
+    
 
     // Check browser support
     if (typeof(Storage) !== "undefined") {
@@ -146,27 +182,20 @@ function newSaleCust(){
         let id = 0;
         if (localStorage.length == 0)
         {
-            console.log("Im braindead")
-            localStorage.setItem('salesCust', JSON.stringify({
-                Phone: phone,
-                customername: customername,
+            localStorage.setItem('sale', JSON.stringify({
+                ID: localStorage.length,
+                CustomerID: customer,
+                EmployeeID: employee,
                 Date: date,
-                Type: type,
-                EmpName: empName,
-                SubTotal: subTotal,
-                Tax : tax,
-                Total: total
+                Type: type
             }));
         } else {
-            localStorage.setItem('salesCust' + localStorage.length, JSON.stringify({
-                Phone: phone,
-                customername: customername,
+            localStorage.setItem('sale' + localStorage.length, JSON.stringify({
+                ID: localStorage.length,
+                CustomerID: customer,
+                EmployeeID: employee,
                 Date: date,
-                Type: type,
-                EmpName: empName,
-                SubTotal: subTotal,
-                Tax : tax,
-                Total: total
+                Type: type
             }));
         }
     } else {
@@ -174,27 +203,23 @@ function newSaleCust(){
     }
 }
 
-function newSaleEquip(){
-    let name = document.getElementById("name").value;
-    let quantity = document.getElementById("quantity").value;
-    let price = document.getElementById("price").value;
+function newSaleProduct(saleid, productid){
     //From here data will be stored into a database
 
     // Check browser support
     if (typeof(Storage) !== "undefined") {
         // Store data
-        let id = 0;
         if (localStorage.length == 0){
-            localStorage.setItem('salesEquip', JSON.stringify({
-                Name: name,
-                Quantity: quantity,
-                Price : price
+            localStorage.setItem('saleproduct', JSON.stringify({
+                ID: localStorage.length,
+                SaleID: saleid,
+                ProductID: productid
             }));
         } else {
-            localStorage.setItem('salesEquip' + localStorage.length, JSON.stringify({
-                Name: name,
-                Quantity: quantity,
-                Price : price
+            localStorage.setItem('saleproduct' + localStorage.length, JSON.stringify({
+                ID: localStorage.length,
+                SaleID: saleid,
+                ProductID: productid
             }));
         }
     } else {
@@ -221,9 +246,9 @@ function newUser(){
     // Check browser support
     if (typeof(Storage) !== "undefined") {
         // Store data
-        let id = 0;
         if (localStorage.length == 0){
             localStorage.setItem('user', JSON.stringify({
+                ID: localStorage.length,
                 Firstname: firstname,
                 Lastname: lastname,
                 Email: email,
@@ -233,6 +258,7 @@ function newUser(){
             }));
         } else {
             localStorage.setItem('user' + localStorage.length, JSON.stringify({
+                ID: localStorage.length,
                 Firstname: firstname,
                 Lastname: lastname,
                 Email: email,

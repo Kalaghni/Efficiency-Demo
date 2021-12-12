@@ -1,6 +1,7 @@
 function pushEdit(tbkey) {
     for (var key in localStorage) {
         if (key == tbkey) {
+            let id = JSON.parse(localStorage[key]).ID;
             let firstname = document.getElementById("firstname").value;
             let lastname = document.getElementById("lastname").value;
             let email = document.getElementById("email").value;
@@ -9,6 +10,7 @@ function pushEdit(tbkey) {
             let group = document.getElementById("group").value;
 
             localStorage[key] = JSON.stringify({
+                        ID: id,
                         Firstname: firstname,
                         Lastname: lastname,
                         Email: email,

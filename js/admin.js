@@ -52,8 +52,9 @@ function setUser(email) {
 
 if (localStorage['emma'] == undefined) {
     localStorage.setItem('emma', JSON.stringify({
+        ID: localStorage.length,
         Firstname: "Emma",
-        Lastname: "Admin",
+        Lastname: "Motors",
         Email: "emma@gmail.com",
         Username : "Emma",
         Password : "password",

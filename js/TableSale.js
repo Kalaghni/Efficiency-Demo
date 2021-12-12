@@ -1,66 +1,43 @@
-function allStorage() { //Get data from local storage
-
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-
-    while (i--) {
-        values.push(localStorage.getItem(keys[i]));
-    }
-
-    return values;
-}
-
-let mountains = allStorage().map(JSON.parse); //Convert local storage to objects
-console.log(mountains);
 
 
-var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Customer Phone" + "</th>"
+var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Employee Name" + "</th>"
                                 + "<th>" + "Customer Name" + "</th>"
                                 + "<th>" + "Date" + "</th>"
                                 + "<th>" + "Type" + "</th>"
-                                + "<th>" + "Employee Name" + "</th>"
-                                + "<th>" + "Sub-Total" + "</th>"
-                                + "<th>" + "Tax" + "</th>"
-                                + "<th>" + "Total" + "</th>"
                                 + "</tr>" + "</thead>" + "<tbody>";
 
-for (var key in mountains){
+for (var key in localStorage){
 //console.log(key);
-    saleCustTable += "<tr>"
-    if (mountains[key].hasOwnProperty("Date")){
-        console.log(mountains[key].FirstName);
-        saleCustTable += "<td>" + mountains[key].Phone +  "</td>";
-        saleCustTable += "<td>" + mountains[key].customername + "</td>";
-        saleCustTable += "<td>" + mountains[key].Date + "</td>";
-        saleCustTable += "<td>" + mountains[key].Type + "</td>";
-        saleCustTable += "<td>" + mountains[key].EmpName + "</td>";
-        saleCustTable += "<td>" + mountains[key].SubTotal + "</td>";
-        saleCustTable += "<td>" + mountains[key].Tax + "</td>";
-        saleCustTable += "<td>" + mountains[key].Total + "</td>";
+try{
+        saleCustTable += "<tr>"
+        var storageTemp = JSON.parse(localStorage[key]);
+        let customername = "";
+        let employeename = "";
+        if (storageTemp.hasOwnProperty("EmployeeID")){
+            for(var key2 in localStorage) {
+                var storageTemp2 = JSON.parse(localStorage[key2]);
+                if (storageTemp2.hasOwnProperty('Mobile') && storageTemp2.ID == storageTemp.CustomerID) {
+                    customername = storageTemp2.FirstName + " " + storageTemp2.LastName;
+                }
+            }
+
+            for(var key3 in localStorage) {
+                var storageTemp3 = JSON.parse(localStorage[key3]);
+                if (storageTemp3.hasOwnProperty('Email') && storageTemp3.ID == storageTemp.EmployeeID) {
+                    employeename = storageTemp3.Firstname + " " + storageTemp3.Lastname;
+                }
+            }
+
+            saleCustTable += "<td>" + customername +  "</td>";
+            saleCustTable += "<td>" + employeename + "</td>";
+            saleCustTable += "<td>" + storageTemp.Date + "</td>";
+            saleCustTable += "<td>" + storageTemp.Type + "</td>";
+
+        }
+        saleCustTable += "</tr>"
     }
-    saleCustTable += "</tr>"
+    catch {}
 }
                                 
 saleCustTable += "</tbody>"
 document.getElementById("datatablesSimple").innerHTML = saleCustTable;
-
-//sale equipment
-var saleEquipmentTable = "<thead>" + "<tr>" 
-                       + "<th>" + "Name" + "</th>" 
-                       + "<th>" + "Quantity" + "</th>" 
-                       + "<th>" + "Price" + "</th>" 
-                       + "</tr>" + "</thead>" + "<tbody>";
-
-for (var key in mountains){
-    saleEquipmentTable += "<tr>"
-    if (mountains[key].hasOwnProperty('Quantity')){
-        saleEquipmentTable += "<td>" + mountains[key].Name + "</td>";
-        saleEquipmentTable += "<td>" + mountains[key].Quantity + "</td>";
-        saleEquipmentTable += "<td>" + mountains[key].Price + "</td>";
-    }    
-    saleEquipmentTable += "</tr>"
-}
-
-saleEquipmentTable += "</tbody>"
-document.getElementById("SaleEquipTable").innerHTML = saleEquipmentTable;

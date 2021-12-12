@@ -101,43 +101,27 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-					<form action="found-Invoice.html" method="get">
+					<form action="Table-Sale.html" method="get">
 						<div class="marg">
-                            <label for="number">Customer Phone:</label>
-                            <input id="phone" name="phone" type="tel" placeholder="(123) 456-7890 " title="Phone number of customer" required>
-        
-                            <label for="customername">Customer Name:</label>
-                            <input id="customername" name="customername" type="text" placeholder="John Doe" title="Name of customer" required>
+                            <label for="ownerddl">Customer Name:</label>
+                            <select id="ownerddl" name="ownerddl"></select>
+
+                            <label for="empddl">Employee Name:</label>
+                            <select id="empddl" name="empddl"></select>
 
                             <label for="date">Date:</label>
-                            <input id="date" name="date" type="date" title="The date of the purchase" required>
+                            <input id="date" name="date" type="date" title="Date of the sale" required>
 
                             <label for="type">Order Type:</label>
                             <input id="type" name="type" type="text" placeholder="Repair" title="Type of order" required>
 
-                            <label for="empName">Employee Name:</label>
-                            <input id="empName" name="empName" type="text" placeholder="John Doe" title="Name of employee" required>
-
-                            <label for="name">Product Name:</label>
-                            <input id="name" name="name" type="text" placeholder="John Deer - FGB" title="Name of the product" required>
-
-                            <label for="quantity">Quantity:</label>
-                            <input id="quantity" name="quantity" type="text" placeholder="2" title="Quantity of products in the order" required>
-
-                            <label for="price">Price:</label>
-                            <input id="price" name="price" type="text" placeholder="10.49" title="The cost of the product" required>
-
-                            <label for="subTotal">Sub Toal:</label>
-                            <input id="subTotal" name="subTotal" type="text" placeholder="9.99" title="Order's total before tax" required>
-
-                            <label for="tax">Tax:</label>
-                            <input id="tax" name="tax" type="text" placeholder="0.50" title="The tax being added to the order" required>
-
-                            <label for="total">Total:</label>
-                            <input id="total" name="total" type="text" placeholder="10.49" title="Total price of all items in the order" required>
+                            <label for="saleitems">Items:</label>
+                            <div id="saleitems" name="saleitems">
+                                <input type="button" onclick="newSaleItem()" value="+">
+                            </div>
                             
                             <div>
-                                <input type="submit" onclick="newSaleCust()" value="Add Sale">
+                                <input type="submit" onclick="newSale()" value="Add Sale">
                             </div>
 
                             <div>
@@ -168,5 +152,8 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/user.js"></script>
+        <script src="js/customerSelect.js"></script>
+        <script src="js/employeeSelect.js"></script>
+        <script src="js/itemsSelect.js"></script>
     </body>
 </html>
