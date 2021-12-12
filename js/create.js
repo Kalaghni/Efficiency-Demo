@@ -68,7 +68,7 @@ function newProduct(itemindex){
             }));
         } else {
             localStorage.setItem('product' + localStorage.length, JSON.stringify({
-                ID: localStorage.length + 1,
+                ID: localStorage.length,
                 Desc: desc,
                 Name: name,
                 Stock: stock,
@@ -170,12 +170,12 @@ function newSale(){
     let employee = document.getElementById("empddl").value;
     let date = document.getElementById("date").value;
     let type = document.getElementById("type").value;
-
-    for (let i = 1; i <= count; i++) {
-        newSaleProduct(localStorage.length, document.getElementById('saleitems' + count).value);
-    }
+    let bothid = localStorage.length;
     
-
+    
+    for (let i = 1; i <= count; i++) {
+        newSaleProduct(bothid, document.getElementById('saleitems' + count).value, document.getElementById('qty' + count).value);
+    }
     // Check browser support
     if (typeof(Storage) !== "undefined") {
         // Store data
@@ -183,7 +183,7 @@ function newSale(){
         if (localStorage.length == 0)
         {
             localStorage.setItem('sale', JSON.stringify({
-                ID: localStorage.length,
+                ID: bothid,
                 CustomerID: customer,
                 EmployeeID: employee,
                 Date: date,
@@ -191,7 +191,7 @@ function newSale(){
             }));
         } else {
             localStorage.setItem('sale' + localStorage.length, JSON.stringify({
-                ID: localStorage.length,
+                ID: bothid,
                 CustomerID: customer,
                 EmployeeID: employee,
                 Date: date,
@@ -203,7 +203,7 @@ function newSale(){
     }
 }
 
-function newSaleProduct(saleid, productid){
+function newSaleProduct(saleid, productid, qty){
     //From here data will be stored into a database
 
     // Check browser support
@@ -213,13 +213,15 @@ function newSaleProduct(saleid, productid){
             localStorage.setItem('saleproduct', JSON.stringify({
                 ID: localStorage.length,
                 SaleID: saleid,
-                ProductID: productid
+                ProductID: productid,
+                Qty: qty
             }));
         } else {
             localStorage.setItem('saleproduct' + localStorage.length, JSON.stringify({
                 ID: localStorage.length,
                 SaleID: saleid,
-                ProductID: productid
+                ProductID: productid,
+                Qty : qty
             }));
         }
     } else {
