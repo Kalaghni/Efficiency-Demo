@@ -68,7 +68,7 @@ function newProduct(itemindex){
             }));
         } else {
             localStorage.setItem('product' + localStorage.length, JSON.stringify({
-                ID: localStorage.length + 1,
+                ID: localStorage.length,
                 Desc: desc,
                 Name: name,
                 Stock: stock,
@@ -130,6 +130,26 @@ function newEquipment(){
 
 let count = 0;
 var tempItems;
+let tempQty = 0;
+
+function setQty(ct) {
+        for (var key in localStorage) {
+            try {
+                var storageTemp = JSON.parse(localStorage[key]);            
+                let count2 = 0;
+                if (storageTemp.hasOwnProperty('Desc')) {
+                    count2++;
+                    if (count2 == 1) {
+                        tempQty = storageTemp.Stock;
+                    }
+                }
+            }
+            catch {}
+        }
+    tempItems.replace('qty_here' + ct, tempQty);
+    document.getElementById('saleitems').innerHTML = tempItems;
+}
+
 
 
 function newSaleItem() {
@@ -144,13 +164,19 @@ function newSaleItem() {
     if (count > 1) {
         tempItems += "------------------------------"; 
     }
-
-    tempItems += `<label for='saleitems` + count + `' >Product</label><select id='saleitems` + count + `' name='saleitems` + count + `'>`;
+    
+    tempItems += `<label for='saleitems` + count + `' >Product</label><select id='saleitems` + count + `' name='saleitems'>`;
     for (var key in localStorage) {
         try {
             var storageTemp = JSON.parse(localStorage[key]);
+            
+            let count2 = 0;
             if (storageTemp.hasOwnProperty('Desc')) {
+                count2++;
                 tempItems += `<option value ='` + storageTemp.ID + `'>` + storageTemp.Name + `</option>`;
+                if (count2 == 1) {
+                    tempQty = storageTemp.Stock;
+                }
             }
         }
         catch {}
@@ -170,12 +196,12 @@ function newSale(){
     let employee = document.getElementById("empddl").value;
     let date = document.getElementById("date").value;
     let type = document.getElementById("type").value;
-
-    for (let i = 1; i <= count; i++) {
-        newSaleProduct(localStorage.length, document.getElementById('saleitems' + count).value);
-    }
+    let bothid = localStorage.length;
     
-
+    
+    for (let i = 1; i <= count; i++) {
+        newSaleProduct(bothid, document.getElementById('saleitems' + count).value, document.getElementById('qty' + count).value);
+    }
     // Check browser support
     if (typeof(Storage) !== "undefined") {
         // Store data
@@ -183,7 +209,7 @@ function newSale(){
         if (localStorage.length == 0)
         {
             localStorage.setItem('sale', JSON.stringify({
-                ID: localStorage.length,
+                ID: bothid,
                 CustomerID: customer,
                 EmployeeID: employee,
                 Date: date,
@@ -191,7 +217,7 @@ function newSale(){
             }));
         } else {
             localStorage.setItem('sale' + localStorage.length, JSON.stringify({
-                ID: localStorage.length,
+                ID: bothid,
                 CustomerID: customer,
                 EmployeeID: employee,
                 Date: date,
@@ -203,7 +229,7 @@ function newSale(){
     }
 }
 
-function newSaleProduct(saleid, productid){
+function newSaleProduct(saleid, productid, qty){
     //From here data will be stored into a database
 
     // Check browser support
@@ -213,13 +239,15 @@ function newSaleProduct(saleid, productid){
             localStorage.setItem('saleproduct', JSON.stringify({
                 ID: localStorage.length,
                 SaleID: saleid,
-                ProductID: productid
+                ProductID: productid,
+                Qty: qty
             }));
         } else {
             localStorage.setItem('saleproduct' + localStorage.length, JSON.stringify({
                 ID: localStorage.length,
                 SaleID: saleid,
-                ProductID: productid
+                ProductID: productid,
+                Qty : qty
             }));
         }
     } else {
