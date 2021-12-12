@@ -51,22 +51,31 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
+<<<<<<< Updated upstream
                         <form action="example-Invoice.html" method="get">
+=======
+>>>>>>> Stashed changes
                             <h1 class="mt-4">Invoice</h1>
                             <div class="card mb-2">
                                 <div class="card-header">
                                     <i class="fas fa-table me-1"></i>
                                     Invoice Search
                                 </div>                         
-                                <label for="phone">Phone Number:</label>
+                                <label for="saleid">Order ID:</label>
                                 <div>
-                                    <input id="phone" name="phone" type="text"placeholder="(905)-123-4567" title="Customers phone number that is tied to order" required>
+                                    <input id="saleid" name="saleid" type="text" title="Order number tied to the sale record" required>
                                 </div>
                                 <div class="marg">
-                                    <input type="submit" onclick="findInvoice()" value="Find Invoice(s)">
+                                    <input type="button" onclick="findInvoice()" value="Find Invoice(s)">
                                 </div>
-                            </div>
-                        </form>
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-table me-1"></i>Sale Database
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="datatablesSimple"></table>
+                                    </div>
+                                </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -91,5 +100,6 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/user.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/InvoiceDetail.js"></script>
     </body>
 </html>

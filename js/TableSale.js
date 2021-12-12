@@ -1,6 +1,7 @@
 
 
-var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "Employee Name" + "</th>"
+var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "#" + "</th>"
+                                + "<th>" + "Employee Name" + "</th>"
                                 + "<th>" + "Customer Name" + "</th>"
                                 + "<th>" + "Date" + "</th>"
                                 + "<th>" + "Type" + "</th>"
@@ -66,6 +67,7 @@ try{
 
             var productTxt = "Item List</br>";
 
+            saleCustTable += "<td>" + storageTemp.ID + "</td>";
             saleCustTable += "<td>" + customername +  "</td>";
             saleCustTable += "<td>" + employeename + "</td>";
             saleCustTable += "<td>" + storageTemp.Date + "</td>";

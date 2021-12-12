@@ -105,3 +105,7 @@ function Logout() {
     } 
 }
 
+function findInvoice() {
+    saleid = document.getElementById("saleid").value;
+    console.log(saleid);
+}

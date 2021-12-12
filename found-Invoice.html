@@ -52,28 +52,15 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Invoice</h1>
-                        <form action="Invoice.html" method="get">
-                            <div class="card mb-2">
-                                <div class="card-header">
-                                    <i class="fas fa-table me-1"></i>
-                                     Customer Invoice
-                                </div> 
-                               <div class="marg">
-                                
-                                <script>
-                                    getSetText("get")
-                                </script>
-                               
-
-                                <script>//getSetText("get")</script>
-
-                                <ul id="list">
-                                    
-                                </ul>
-
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>Sale Database
                             </div>
-                        </form>
-                        
+                            <div class="card-body">
+                                <table id="datatablesSimple"></table>
+                            </div>
+                        </div>
+                    </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -98,5 +85,6 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/user.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/InvoiceDetail.js"></script>
     </body>
 </html>
