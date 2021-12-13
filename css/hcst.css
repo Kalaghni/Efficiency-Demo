@@ -1,0 +1,49 @@
+/*High contrast override*/
+:root {
+    --bs-primary-rgb: 10, 19, 173;
+    --bs-dark-rgb: 0, 0, 0 ;
+}
+
+.sb-sidenav-dark {
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link {
+    border-style: solid;
+    border-color: white;
+}
+
+.card-body {    
+    border-style: solid;
+}
+
+.sb-sidenav-dark .sb-sidenav-footer {
+    background-color: #000000;
+    border-style: solid;
+    border-width: 4px;
+    border-color: white;
+}
+
+.crud-green {
+    background: #00ff2a;
+}
+
+.crud-red {
+    background: #ff0000;
+}
+
+input[type="submit"] {
+    background: #000000;
+    border: solid #000000;
+    color: #edf0f1;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #00ff00;
+    border: solid #00ff00;
+}

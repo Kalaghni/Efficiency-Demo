@@ -9,13 +9,14 @@
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="css/wcag.css">
+        <link rel="stylesheet" href="css/create-new-form.css">
+        <link rel="stylesheet" href="css/hcst.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Emma's Motors</a>
+            <a class="navbar-brand ps-3" href="hcst-index.html">Emma's Motors</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -51,31 +52,51 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Products</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Products</li>
-                        </ol>
-                        <div>
-                            <a href="new-Product.html">Create New Product</a>
-                        </div>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>Product Database
+					<form action="hcst-Table-Customer.html">
+						<div class="marg">
+                            <label for="firstname">First Name:</label>
+							<input id="firstname" name="firstname" type="text" data-toggle="tooltip" placeholder="John" title="First Name of the New Customer you want to add" required>
+		
+							<label for="middlename">Middle Name:</label>
+							<input id="middlename" name="middlename" type="text" data-toggle="tooltip" placeholder="M" title="Middle Name of the New Customer you want to add">
+		
+							<label for="lastname">Last Name:</label>
+							<input id="lastname" name="lastname" type="text" data-toggle="tooltip" placeholder="Smith" title="Last Name of the New Customer you want to add" required>
+		
+							<label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" data-toggle="tooltip" placeholder="123-456-7890"  title="The Phone number of the customer you want to add following the North American Numbering Plan eg 123-456-7890" required>
+							
+							<label for="streetnumber">Street Number:</label>
+							<input id="streetnumber" name="streetnumber" type="number" min="1" max="1000000" data-toggle="tooltip" placeholder="1234" title="The Street number the Customer has there things delievered to"required>
+		
+							<label for="streetname">Street Name:</label>
+							<input id="streetname" name="streetname" type="text" data-toggle="tooltip" placeholder="Cedar Wood Drive"  title="The Street the Customer has there things delivered too" required>
+		
+							<label for="city">City:</label>
+							<input id="city" name="city" type="text" data-toggle="tooltip" placeholder="Austin" title="The City the Customer Lives in"required>
+		
+							<label for="state">State:</label>
+							<input id="state" name="state" type="text" data-toggle="tooltip" placeholder="Texas" title="The State the Customer Lives in"required>
+		
+							<label for="zip">Zip Code:</label>
+							<input id="zip" name="zip" type="text" inputmode="numeric" pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$" data-toggle="tooltip" placeholder="73301" title="The Postal code of the Customer Following the Standard American Zip Code eg: 12345-6789"required>
+                        
+                            <div>
+                                <input type="submit" onclick="newCustomer()" value="Add Customer">
                             </div>
-                            <div class="card-body">
-                                <table id="datatablesSimple"></table>
+
+                            <div>
+                                <a href="hcst-Table-Customer.html">Return to Customer Table</a>
                             </div>
                         </div>
-                    </div>
-                </main>
+					</form>
+				</main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Emma's Motors 2021</div>
                             <div>
-                                <a href="#">High Contrast Mode</a>
+                                <a href="new-Customer.html">Normal Mode</a>
                                 &middot;
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -86,11 +107,13 @@
                 </footer>
             </div>
         </div>
+        <script src="js/create.js"> </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-        <script src="js/TableProduct.js"></script>
         <script src="js/user.js"></script>
     </body>
 </html>
