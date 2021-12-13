@@ -119,18 +119,7 @@ for (var key in localStorage){
     try {
         storageTemp = JSON.parse(localStorage[key]);
         if (storageTemp.hasOwnProperty('Description')){
-            mytable += "<td>" + storageTemp.Name + "</td>";
-            mytable += "<td>" + storageTemp.Brand + "</td>";
-            mytable += "<td>" + storageTemp.Type + "</td>";
-            mytable += "<td>" + storageTemp.Manufacture + "</td>";
-            mytable += "<td>" + storageTemp.SerialNumber + "</td>";
-            mytable += "<td>" + storageTemp.ProductNumber + "</td>";
-            mytable += "<td>" + customerName + "</td>";        
-            mytable += "<td>" + storageTemp.Description + "</td>";
-            mytable += "<td>" + `
-                <a class="crud-green" onClick="onLoad('` + key.toString() + `')">Edit</a> 
-                <a class="crud-red" onClick="onDelete('` + key + `')">Delete</a>` + 
-            "</td>";
+            
             let customerName = "None";
             for (var key2 in localStorage) {
                 try {
@@ -144,7 +133,18 @@ for (var key in localStorage){
                 }
                 
             }
-            
+            mytable += "<td>" + storageTemp.Name + "</td>";
+            mytable += "<td>" + storageTemp.Brand + "</td>";
+            mytable += "<td>" + storageTemp.Type + "</td>";
+            mytable += "<td>" + storageTemp.Manufacture + "</td>";
+            mytable += "<td>" + storageTemp.SerialNumber + "</td>";
+            mytable += "<td>" + storageTemp.ProductNumber + "</td>";
+            mytable += "<td>" + customerName + "</td>";        
+            mytable += "<td>" + storageTemp.Description + "</td>";
+            mytable += "<td>" + `
+                <a class="crud-green" onClick="onLoad('` + key.toString() + `')">Edit</a> 
+                <a class="crud-red" onClick="onDelete('` + key + `')">Delete</a>` + 
+            "</td>";
         }
         mytable += "</tr>"
     }
