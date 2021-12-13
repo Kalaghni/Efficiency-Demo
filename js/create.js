@@ -200,7 +200,7 @@ function newSale(){
     
     
     for (let i = 1; i <= count; i++) {
-        newSaleProduct(bothid, document.getElementById('saleitems' + count).value, document.getElementById('qty' + count).value);
+        newSaleProduct(bothid, document.getElementById('saleitems' + i).value, document.getElementById('qty' + i).value);
     }
     // Check browser support
     if (typeof(Storage) !== "undefined") {

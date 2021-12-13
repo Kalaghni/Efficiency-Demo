@@ -56,7 +56,7 @@ function findInvoice() {
                     try {
                         for(var key4 in localStorage) {
                             var storageTemp4 = JSON.parse(localStorage[key4]);
-                            if (storageTemp4.hasOwnProperty('ProductID') && storageTemp4.ID == storageTemp.ID) {
+                            if (storageTemp4.hasOwnProperty('ProductID') && storageTemp4.SaleID == storageTemp.ID) {
                                 try {
                                     for (var key5 in localStorage) {
                                    
@@ -80,7 +80,7 @@ function findInvoice() {
                     }
                     catch {}
         
-                    var productTxt = "Item List</br>";
+                    var productTxt = "";
 
                     saleCustTable += "<td>" + storageTemp.ID + "</td>";
                     saleCustTable += "<td>" + employeename +  "</td>";

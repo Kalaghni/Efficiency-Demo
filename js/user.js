@@ -6,4 +6,3 @@ else {
     div.innerHTML = "Not logged in";
 }
 
-

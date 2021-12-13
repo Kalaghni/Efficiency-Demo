@@ -90,5 +90,12 @@
         <script src="js/datatables-simple-demo.js"></script>
         <script src="js/TableUser.js"></script>
         <script src="js/user.js"></script>
+        <script>
+            json_login = JSON.parse(localStorage['login_status']);
+
+            if (json_login.Group != "Admin") {
+                location.assign("login.html")
+            }
+        </script>
     </body>
 </html>

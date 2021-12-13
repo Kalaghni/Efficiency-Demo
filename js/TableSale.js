@@ -16,7 +16,7 @@ try{
         let customername = "";
         let employeename = "";
         let count = 0;
-        let products = [{}];
+        let products = {};
         if (storageTemp.hasOwnProperty("EmployeeID")){
             try {
                 for(var key2 in localStorage) {
@@ -41,7 +41,7 @@ try{
             try {
                 for(var key4 in localStorage) {
                     var storageTemp4 = JSON.parse(localStorage[key4]);
-                    if (storageTemp4.hasOwnProperty('ProductID') && storageTemp4.ID == storageTemp.ID) {
+                    if (storageTemp4.hasOwnProperty('ProductID') && storageTemp4.SaleID == storageTemp.ID) {
                         try {
                             for (var key5 in localStorage) {
                            
@@ -65,7 +65,7 @@ try{
             }
             catch {}
 
-            var productTxt = "Item List</br>";
+            var productTxt = "";
 
             saleCustTable += "<td>" + storageTemp.ID + "</td>";
             saleCustTable += "<td>" + customername +  "</td>";
@@ -74,6 +74,7 @@ try{
             saleCustTable += "<td>" + storageTemp.Type + "</td>";
             try {
                 for (let i = 1; i <= count; i++) {
+                    console.log(products);
                 productTxt += products[i].Name + "  x " + products[i].Qty + "</br>";
             }
             }catch{}
