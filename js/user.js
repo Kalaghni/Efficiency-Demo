@@ -54,8 +54,7 @@ for (var key in localStorage) {
     }
     }catch{} 
     
-    subtotal *= 1.13;
-    total += subtotal;
+    total = subtotal;
 
     
 } 

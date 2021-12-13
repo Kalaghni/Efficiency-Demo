@@ -133,8 +133,8 @@ for (var key in localStorage){
             "</td>";
             let customerName = "None";
             for (var key2 in localStorage) {
-                storageTemp2 = JSON.parse(localStorage[key2]);
                 try {
+                    storageTemp2 = JSON.parse(localStorage[key2]);
                     if (storageTemp2.hasOwnProperty("Mobile") && storageTemp2.ID == storageTemp.CustomerID) {
                         customerName = storageTemp2.FirstName + " " + storageTemp2.LastName;
                         break;
