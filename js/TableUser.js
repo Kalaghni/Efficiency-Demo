@@ -64,7 +64,7 @@ function onLoad(editkey) {
                         mytable += `<td><input id="username" name="username" type="text" value="` + storageTemp.Username + `"></td>`;
                         mytable += `<td><input id="password" name="password" type="text" value="` + storageTemp.Password + `"></td>`;
                         mytable += `<td><select id="group" name="group"><option value="` + storageTemp.Group + `"> ` + storageTemp.Group + ` </option>`;
-                        if (storageTemp.Group != "Security"){
+                        if (storageTemp.Group != "Admin"){
                             mytable += `<option value="Admin">Admin</option>`;
                         }
                         if (storageTemp.Group != "Security"){
