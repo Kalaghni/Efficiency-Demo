@@ -25,6 +25,7 @@ for (var key in localStorage){
                                 if (storageTemp5.hasOwnProperty('Desc') && storageTemp4.ProductID == storageTemp5.ID) {
                                     count++;
                                     products[count] = {
+                                        Date: storageTemp.Date,
                                         Name : storageTemp5.Name,
                                         Qty : storageTemp4.Qty,
                                         Price : storageTemp5.UnitPrice
@@ -49,13 +50,12 @@ for (var key in localStorage){
 
                 try {
                     for (let i = 1; i <= count; i++) {
-                    productTxt += products[i].Name + " ($" + products[i].Price + ") x " + products[i].Qty + " = $" + products[i].Price * products[i].Qty + "</br>";
+                    productTxt += products[i].Date + " " +products[i].Name + " ($" + products[i].Price + ") x " + products[i].Qty + " = $" + products[i].Price * products[i].Qty + "</br>";
                     total += products[i].Price * products[i].Qty;
                 }
                 }catch{}
                 
                 saleCustTable += productTxt;
-
             } 
             
         }
@@ -63,7 +63,5 @@ for (var key in localStorage){
         
     }
 saleCustTable += "</br>Total: $" + Math.trunc(total * 1.13) + "</br>Party Planning Budget: $" + Math.trunc(total * 1.13 * 0.02);
-            saleCustTable += "</p>"                                    
+saleCustTable += "</p>"                                    
 document.getElementById("found-invoice").innerHTML = saleCustTable;
-
-
