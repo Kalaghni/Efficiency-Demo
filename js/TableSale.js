@@ -74,7 +74,6 @@ try{
             saleCustTable += "<td>" + storageTemp.Type + "</td>";
             try {
                 for (let i = 1; i <= count; i++) {
-                    console.log(products);
                 productTxt += products[i].Name + "  x " + products[i].Qty + "</br>";
             }
             }catch{}
