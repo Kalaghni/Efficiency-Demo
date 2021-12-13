@@ -51,10 +51,12 @@ try{
         <div class="sb-nav-link-icon"></div>
         Invoice Lookup
     </a>
-    
     <div id="admin-only-users">
     </div>
-    
+    <a class="nav-link" href="Sales-Report.html">
+        <div class="sb-nav-link-icon"></div>
+        Sales Report
+    </a>
     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
