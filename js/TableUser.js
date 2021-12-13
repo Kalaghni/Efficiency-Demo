@@ -63,11 +63,31 @@ function onLoad(editkey) {
                         mytable += `<td><input id="email" name="email" type="text" value="` + storageTemp.Email + `"></td>`;
                         mytable += `<td><input id="username" name="username" type="text" value="` + storageTemp.Username + `"></td>`;
                         mytable += `<td><input id="password" name="password" type="text" value="` + storageTemp.Password + `"></td>`;
-                        mytable += `<td><input id="group" name="group" type="text" value="` + storageTemp.Group + `"></td>`;
-                        mytable += "<td>" + `
-                            <a class="crud-green" onClick="pushEdit('` + key.toString() + `')">Submit</a> 
-                            <a class="crud-red" onClick="location.reload()">Cancel</a>` + 
-                        "</td>";
+                        mytable += `<td><select id="group" name="group"><option value="` + storageTemp.Group + `"> ` + storageTemp.Group + ` </option>`;
+                        if (storageTemp.Group != "Security"){
+                            mytable += `<option value="Admin">Admin</option>`;
+                        }
+                        if (storageTemp.Group != "Security"){
+                            mytable += `<option value="Security">Security</option>`;
+                        }
+                        if (storageTemp.Group != "Staff"){
+                            mytable += `<option value="Staff">Staff</option>`;
+                        }
+                        if (storageTemp.Group != "Supervisor"){
+                            mytable += `<option value="Supervisor">Supervisor</option>`;
+                        }
+                        if (storageTemp.Group != "Sales"){
+                            mytable += `<option value="Sales">Sales</option>`;
+                        }
+                        if (storageTemp.Group != "Manager"){
+                            mytable += `<option value="Manager">Manager</option></td>`;
+                        }           
+                        mytable += `</select/>`;
+                        mytable += "<td>" + `<a href="#" onClick="pushEdit('` + key.toString() + `')">Submit</a> <a href="#" onClick="location.reload()">Cancel</a>` + "</td>"
+                                mytable += "<td>" + `
+                                    <a class="crud-green" onClick="pushEdit('` + key.toString() + `')">Submit</a> 
+                                    <a class="crud-red" onClick="location.reload()">Cancel</a>` + 
+                                "</td>";
                     } 
                     else {
                         mytable += "<td>" + storageTemp.Firstname + "</td>";
