@@ -1,33 +1,21 @@
 
 
-var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "#" + "</th>"
-+ "<th>" + "Employee Name" + "</th>"
-+ "<th>" + "Customer Name" + "</th>"
-+ "<th>" + "Date" + "</th>"
-+ "<th>" + "Type" + "</th>"
-+ "<th>" + "Products" + "</th>"
-+ "</tr>" + "</thead>" + "<tbody>";
-
 let saleid = 0;
 
 function findInvoice() {
 
-    var saleCustTable = "<thead>" + "<tr>"+ "<th>" + "#" + "</th>"
-    + "<th>" + "Employee Name" + "</th>"
-    + "<th>" + "Customer Name" + "</th>"
-    + "<th>" + "Date" + "</th>"
-    + "<th>" + "Type" + "</th>"
-    + "<th>" + "Products" + "</th>"
-    + "</tr>" + "</thead>" + "<tbody>";
+    var saleCustTable = "";
 
     let saleid = document.getElementById("saleid").value;
     for (var key in localStorage){
         //console.log(key);
         try{
-                saleCustTable += "<tr>"
+                saleCustTable += "<p>"
                 var storageTemp = JSON.parse(localStorage[key]);
                 let customername = "";
                 let employeename = "";
+                let custadd = "";
+                let custphone = "";
                 let count = 0;
                 let products = [{}];
                 console.log(saleid);
@@ -37,7 +25,9 @@ function findInvoice() {
                         for(var key2 in localStorage) {
                             var storageTemp2 = JSON.parse(localStorage[key2]);
                             if (storageTemp2.hasOwnProperty('Mobile') && storageTemp2.ID == storageTemp.CustomerID) {
-                                customername = storageTemp2.FirstName + " " + storageTemp2.LastName;
+                                customername = storageTemp2.FirstName + " " + storageTemp2.MiddleName + ". "  + storageTemp2.LastName;
+                                custadd = storageTemp2.StreetNumber + " " + storageTemp2.StreetName + ", " + storageTemp2.City + ", " + storageTemp2.State + ", " + storageTemp2.ZipCode;
+                                custphone = storageTemp2.Mobile;
                             }
                         }
                     }
@@ -65,7 +55,8 @@ function findInvoice() {
                                         count++;
                                         products[count] = {
                                             Name : storageTemp5.Name,
-                                            Qty : storageTemp4.Qty
+                                            Qty : storageTemp4.Qty,
+                                            Price : storageTemp5.UnitPrice
                                         }
                                     } 
                                    
@@ -82,28 +73,33 @@ function findInvoice() {
         
                     var productTxt = "";
 
-                    saleCustTable += "<td>" + storageTemp.ID + "</td>";
-                    saleCustTable += "<td>" + employeename +  "</td>";
-                    saleCustTable += "<td>" + customername + "</td>";
-                    saleCustTable += "<td>" + storageTemp.Date + "</td>";
-                    saleCustTable += "<td>" + storageTemp.Type + "</td>";
+                    saleCustTable += "Invoice-" + storageTemp.ID + "-" + storageTemp.Date + "</br></br><h1>" + storageTemp.Type + " Invoice</h1></br>Sale Employee: " + employeename +  "</br></br><h3>Customer </h3>Name: " + customername + "</br>Address: " + custadd + "</br>Phone: " + custphone + "</br></br><h3>Items</h3>";
+
+                    let subtotal = 0;
+                    let tax = 0;
+                    let total = 0;
+
                     try {
                         for (let i = 1; i <= count; i++) {
-                        productTxt += products[i].Name + "  x " + products[i].Qty + "</br>";
+                        productTxt += products[i].Name + " ($" + products[i].Price + ") x " + products[i].Qty + " = $" + products[i].Price * products[i].Qty + "</br>";
+                        subtotal += products[i].Price * products[i].Qty;
                     }
                     }catch{}
                     
-                    saleCustTable += "<td>" + productTxt + "</td>";
+                    saleCustTable += productTxt;
                     
+                    tax = subtotal * 0.13;
+                    total = subtotal + tax;
+
+                    saleCustTable += "</br>Subtotal: $" + subtotal + "</br>Tax: $" + Math.trunc(tax) + "</br>Total: $" + Math.trunc(total);
         
                 }
-                saleCustTable += "</tr>"
+                saleCustTable += "</p>"
             }
             catch {}
         }
                                         
-        saleCustTable += "</tbody>"
-        document.getElementById("datatablesSimple").innerHTML = saleCustTable;
+        document.getElementById("found-invoice").innerHTML = saleCustTable;
 }
 
 
