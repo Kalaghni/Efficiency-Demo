@@ -83,7 +83,6 @@ function onLoad(editkey) {
                             mytable += `<option value="Manager">Manager</option></td>`;
                         }           
                         mytable += `</select/>`;
-                        mytable += "<td>" + `<a href="#" onClick="pushEdit('` + key.toString() + `')">Submit</a> <a href="#" onClick="location.reload()">Cancel</a>` + "</td>"
                                 mytable += "<td>" + `
                                     <a class="crud-green" onClick="pushEdit('` + key.toString() + `')">Submit</a> 
                                     <a class="crud-red" onClick="location.reload()">Cancel</a>` + 
