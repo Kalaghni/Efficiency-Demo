@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/create-new-form.css" />
+        <link rel="stylesheet" href="css/example-invoice.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">Emma's Motors</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a onclick="Logout()" class="dropdown-item" href="login.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav" id="nav-main">
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        <div id="user"></div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Invoice</h1>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                
+                                <div class="container bootstrap snippets bootdey">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 text-left">
+                                                    <h4><strong>Client</strong> Details</h4>
+                                                    <ul class="list-unstyled">
+                                                        <li><strong>First Name:</strong> John</li>
+                                                        <li><strong>Last Name:</strong> Smith</li>
+                                                        <li><strong>Province:</strong> Ontario</li>
+                                                        <li><strong>Phone:</strong> 289-524-8956</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 text-right">
+                                                    <h4><strong>Payment</strong> Details</h4>
+                                                    <ul class="list-unstyled">
+                                                        <li><strong>Credit/ Debit:</strong> Mastercard</li>
+                                                        <li><strong>Card Number:</strong> 5446XXXXXXXX7548</li>
+                                                        <li><strong>Reference Number:</strong> 58ASDADSASD98541GJSNF</li>
+                                                    </ul>
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="table-responsive">
+                                                <table class="table table-condensed nomargin">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Item Name</th>
+                                                            <th>Quantity</th>
+                                                            <th>Unit Price</th>
+                                                            <th>Tax</th>
+                                                            <th>Total Price</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div><strong>Unique side and front panel design</strong></div>
+                                                                <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                                                            </td>
+                                                            <td>2</td>
+                                                            <td>$20.00</td>
+                                                            <td>$3.78</td>
+                                                            <td>$23,78</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div><strong>Side panel with TAC 2.0 ventilation</strong></div>
+                                                                <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                                                            </td>
+                                                            <td>2</td>
+                                                            <td>$67.00</td>
+                                                            <td>$1.80</td>
+                                                            <td>$68.80</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div><strong>Mesh front panel design to improve air</strong></div>
+                                                                <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+                                                            </td>
+                                                            <td>3</td>
+                                                            <td>$335.00</td>
+                                                            <td>$100.20</td>
+                                                            <td>$435.20</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <hr class="nomargin-top">
+                                            <div class="row">
+                                                <div class="col-sm-6 text-left">
+                                                    <h4><strong>Contact</strong> Details</h4>
+                                                    <p class="nomargin nopadding">
+                                                        <strong>Note:</strong> 
+                                                        Lid est laborum dolo rumes fugats.
+                                                    </p><br><!-- no P margin for printing - use <br> instead -->
+
+                                                    <address>
+                                                        PO Box 21132 <br>
+                                                        New Minas 2355 Canada<br>
+                                                        Phone: 1-800-565-2390 <br>
+                                                        Fax: 1-800-565-2390 <br>
+                                                        Email:support@yourname.com
+                                                    </address>
+                                                </div>
+
+                                                <div class="col-sm-6 text-right">
+                                                    <ul class="list-unstyled">
+                                                        <li><strong>Sub - Total Amount:</strong> $2162.00</li>
+                                                        <li><strong>Discount:</strong> 10.0%</li>
+                                                        <li><strong>Tax (13%):</strong> $12.0</li>
+                                                        <li><strong>Grand Total:</strong> $1958.0</li>
+                                                    </ul>     
+                                                    <a class="btn btn-default" href="#">MAKE A PAYMENT</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default text-right">
+                                        <div class="panel-body">
+                                            <a class="btn btn-warning" href="#"><i class="fa fa-pencil-square-o"></i> EDIT</a>
+                                            <a class="btn btn-primary" href="#"><i class="fa fa-check"></i> SAVE</a>
+                                            <a class="btn btn-success" href="page-invoice-print.html" target="_blank"><i class="fa fa-print"></i> PRINT INVOICE</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Emma's Motors 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="js/TableCustomer.js"></script>
+        <script src="js/user.js"></script>
+    </body>
+</html>
